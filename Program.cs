@@ -6,7 +6,10 @@ namespace DataBase
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Building build = new Building(2);
+
+            Console.WriteLine(build.floorCount);
+            Console.ReadKey();
         }
     }
 }

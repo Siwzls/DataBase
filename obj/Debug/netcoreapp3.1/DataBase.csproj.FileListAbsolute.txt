@@ -1,0 +1,14 @@
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.exe
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.deps.json
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.runtimeconfig.json
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.runtimeconfig.dev.json
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.dll
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.pdb
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.csproj.AssemblyReference.cache
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.AssemblyInfoInputs.cache
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.AssemblyInfo.cs
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.csproj.CoreCompileInputs.cache
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.dll
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.pdb
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.genruntimeconfig.cache
