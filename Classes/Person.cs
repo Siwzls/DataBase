@@ -6,6 +6,7 @@ namespace DataBase
 {
     class Person
     {
+        protected int Id;
         protected string name;
         protected string lastName;
         protected int age;

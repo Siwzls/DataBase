@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml;
 
 namespace DataBase
 {
@@ -6,13 +7,17 @@ namespace DataBase
     {
         static void Main(string[] args)
         {
-            Building build = new Building(2);
-            Person guest = new Guests("Rihards", "Fabriks", 18, 2);
-
-            guest.Info();
-
-            Console.WriteLine(build.floorCount);
-            Console.ReadKey();
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(@"C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\DB\people.xml");
+            XmlElement xRoot = xDoc.DocumentElement;
+            if (xRoot != null)
+            {
+                foreach (XmlElement xnode in xRoot)
+                {
+                    XmlNode attr = xnode.Attributes.GetNamedItem("id");
+                    Console.WriteLine(attr.Value);
+                }
+            }
         }
     }
 }
