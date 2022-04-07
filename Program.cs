@@ -1,6 +1,6 @@
 ﻿using System;
+using System.IO;
 using System.Xml;
-
 namespace DataBase
 {
     class Program
@@ -8,7 +8,7 @@ namespace DataBase
         static void Main(string[] args)
         {
             XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(@"C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\DB\people.xml");
+            xDoc.Load(@"..\..\..\DB\people.xml");
             XmlElement xRoot = xDoc.DocumentElement;
             if (xRoot != null)
             {
@@ -18,6 +18,7 @@ namespace DataBase
                     Console.WriteLine(attr.Value);
                 }
             }
+            Console.ReadKey();
         }
     }
 }
