@@ -8,8 +8,9 @@ namespace DataBase
     {
         public int floorCount;
 
-        public Building(int floorCount)
+        public Building(string filename, int floorCount)
         {
+            this.filename = filename;
             this.floorCount = floorCount;
         }
     }

@@ -8,7 +8,7 @@ namespace DataBase
         protected int id;
         protected string filename;
         XmlDocument xDoc = new XmlDocument();
-        public virtual void ShowData(string typeName)
+        public void ShowData(string typeName)
         {
             xDoc.Load($@"..\..\..\DB\{filename}");
             XmlElement xRoot = xDoc.DocumentElement;
@@ -40,28 +40,40 @@ namespace DataBase
         }
         public void SaveData()
         {
+            xDoc.Load($@"..\..\..\DB\{filename}");
+            XmlElement xRoot = xDoc.DocumentElement;
 
+            XmlElement personElem = xDoc.CreateElement("person");
+            XmlAttribute idAttr = xDoc.CreateAttribute("id");
+
+            //XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId()));
+            XmlText idText = xDoc.CreateTextNode("1");
+
+            idAttr.AppendChild(idText);
+            personElem.Attributes.Append(idAttr);
+            personElem.InnerText = "test";
+
+            xRoot.AppendChild(personElem);
+            xDoc.Save("people.xml");
         }
         public int GetFreeId()
         {
             xDoc.Load($@"..\..\..\DB\{filename}");
             XmlElement xRoot = xDoc.DocumentElement;
-            int lastId = -1;
+            int freeId = 0;
             if (xRoot != null)
             {
+                int prevId = -1;
                 foreach (XmlElement xnode in xRoot)
                 {
                     string attr = xnode.Attributes.GetNamedItem("id").Value;
                     int currentId = Convert.ToInt32(attr);
-                    if (lastId + 1 == currentId) lastId = currentId;
-                    else 
-                    {
-                        lastId += 1; 
-                        break;
-                    }
+                    
+                    if (prevId + 1 == currentId) prevId = currentId;
+                    else freeId = prevId + 1;
                 }
             }
-            return lastId;
+            return freeId;
         }
     }
 }
