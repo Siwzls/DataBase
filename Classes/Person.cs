@@ -4,12 +4,16 @@ using System.Text;
 
 namespace DataBase
 {
-    class Person
+    class Person : DataClass
     {
-        protected int Id;
         protected string name;
         protected string lastName;
         protected int age;
+
+        public Person(string filename)
+        {
+            this.filename = filename;
+        }
 
         public void Info()
         {

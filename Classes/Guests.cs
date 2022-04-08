@@ -8,9 +8,10 @@ namespace DataBase
     {
         int hotelRoomID;
 
-        public Guests(int id, string name, string lastName, int age, int hotelRoomID)
+        public Guests(string filename, int id, string name,
+        string lastName, int age, int hotelRoomID) : base(filename)
         {
-            this.Id = id;
+            this.id = id;
             this.name = name;
             this.lastName = lastName;
             this.age = age;

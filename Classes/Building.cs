@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataBase
 {
-    class Building
+    class Building : DataClass
     {
         public int floorCount;
 

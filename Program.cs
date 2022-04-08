@@ -7,18 +7,8 @@ namespace DataBase
     {
         static void Main(string[] args)
         {
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(@"..\..\..\DB\people.xml");
-            XmlElement xRoot = xDoc.DocumentElement;
-            if (xRoot != null)
-            {
-                foreach (XmlElement xnode in xRoot)
-                {
-                    XmlNode attr = xnode.Attributes.GetNamedItem("id");
-                    Console.WriteLine(attr.Value);
-                }
-            }
-            Console.ReadKey();
+            Person data = new Person("people.xml");
+            data.ShowData();
         }
     }
 }
