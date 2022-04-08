@@ -8,25 +8,60 @@ namespace DataBase
         protected int id;
         protected string filename;
         XmlDocument xDoc = new XmlDocument();
-        public void ShowData()
+        public virtual void ShowData(string typeName)
         {
             xDoc.Load($@"..\..\..\DB\{filename}");
             XmlElement xRoot = xDoc.DocumentElement;
             if (xRoot != null)
             {
+                Console.WriteLine("############");
+                Console.WriteLine(typeName);
+                Console.WriteLine("############");
                 foreach (XmlElement xnode in xRoot)
                 {
-                    //XmlNode attr = xnode.Attributes.GetNamedItem("id");
+                    XmlNode attr = xnode.Attributes.GetNamedItem("id");
                     foreach (XmlNode childnode in xnode.ChildNodes)
                     {
                         if (childnode.Name == "name")
                         {
-                            //Console.WriteLine($"Name: {childnode.InnerText}");
+                            Console.WriteLine($"Name: {childnode.InnerText}");
                         }
+                        if (childnode.Name == "type")
+                        {
+                            Console.WriteLine($"Type: {childnode.InnerText}");
+                            Console.WriteLine("-------------------");
+                        }
+                        
                     }
                 }
             }
             Console.ReadKey();
+            Console.Clear();
+        }
+        public void SaveData()
+        {
+
+        }
+        public int GetFreeId()
+        {
+            xDoc.Load($@"..\..\..\DB\{filename}");
+            XmlElement xRoot = xDoc.DocumentElement;
+            int lastId = -1;
+            if (xRoot != null)
+            {
+                foreach (XmlElement xnode in xRoot)
+                {
+                    string attr = xnode.Attributes.GetNamedItem("id").Value;
+                    int currentId = Convert.ToInt32(attr);
+                    if (lastId + 1 == currentId) lastId = currentId;
+                    else 
+                    {
+                        lastId += 1; 
+                        break;
+                    }
+                }
+            }
+            return lastId;
         }
     }
 }

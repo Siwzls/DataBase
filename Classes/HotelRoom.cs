@@ -4,9 +4,8 @@ using System.Text;
 
 namespace DataBase
 {
-    class HotelRoom
+    class HotelRoom : DataClass
     {
-        int roomID;
         int roomsCount;
     }
 }
