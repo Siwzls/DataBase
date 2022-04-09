@@ -9,10 +9,9 @@ namespace DataBase
     {
         public int floorCount;
 
-        public Building(string filename, int floorCount)
+        public Building(string filename)
         {
             this.filename = filename;
-            this.floorCount = floorCount;
         }
         public override void AddData()
         {

@@ -6,6 +6,9 @@ namespace DataBase
 {
     class HotelRoom : DataClass
     {
-        //int roomsCount;
+        public HotelRoom(string filename)
+        {
+            this.filename = filename;
+        }
     }
 }

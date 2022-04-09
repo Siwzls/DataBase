@@ -7,11 +7,11 @@ namespace DataBase
     {
         static void Main(string[] args)
         {
-            DataClass data = new DataClass();
+            DataClass data;
             bool isWorking = true;
             Console.WriteLine("Hello, choose option:");
             while (isWorking)
-            {           
+            {
                 Console.WriteLine("1. Show Data");
                 Console.WriteLine("2. Add Data");
                 Console.WriteLine("3. Delete Data");
@@ -38,8 +38,7 @@ namespace DataBase
                             case "3":
                                 DataClass.ShowData("Hotel rooms", "hotelRooms.xml");
                                 break;
-                        }
-                        
+                        }                       
                         break;
                     case "2":
                         Console.Beep();
@@ -48,7 +47,21 @@ namespace DataBase
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
-                        data.AddData();
+                        switch (Console.ReadLine())
+                        {
+                            case "1":
+                                data = new Person("people.xml");
+                                data.AddData();
+                                break;
+                            case "2":
+                                data = new Building("building.xml");
+                                data.AddData();
+                                break;
+                            case "3":
+                                data = new HotelRoom("hotelRooms.xml");
+                                data.AddData();
+                                break;
+                        }
                         Console.ReadKey();
                         break;
                     case "3":
@@ -84,7 +97,6 @@ namespace DataBase
                     default:
                         isWorking = !isWorking;
                         break;
-                        Console.Clear();
                 }
                 Console.Clear();
             }

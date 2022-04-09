@@ -11,8 +11,8 @@ namespace DataBase
         {
 
         }
-        public Guests(string filename, int id, string name, string lastName, int age) 
-        : base(filename, id, name, lastName, age)
+        public Guests(string filename, string name, string lastName, int age) 
+        : base(filename, name, lastName, age)
         {
         }
     }

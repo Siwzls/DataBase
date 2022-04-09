@@ -14,8 +14,8 @@ namespace DataBase
             Waiter = 3,
             Cleaner = 4
         }
-        public Employee(string filename, int id, string name, string lastName, int age) 
-            : base(filename, id, name, lastName, age)
+        public Employee(string filename, string name, string lastName, int age) 
+            : base(filename, name, lastName, age)
         {
 
         }

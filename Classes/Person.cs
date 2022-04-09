@@ -10,19 +10,16 @@ namespace DataBase
         protected string lastName;
         protected int age;
 
-        public Person(string filename)
-        {
+        public Person(string filename){
             this.filename = filename;
         }
-        public Person(string filename, int id, string name, string lastName, int age)
+        public Person(string filename, string name, string lastName, int age)
         {
-            this.id = id;
             this.filename = filename;
             this.name = name;
             this.lastName = lastName;
             this.age = age;
         }
-
         public void Info()
         {
             Console.WriteLine($"Person name: {name} {lastName}");
