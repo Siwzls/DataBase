@@ -13,28 +13,32 @@ namespace DataBase
             {
                 Console.Clear();
                 Console.WriteLine("Hello, choose option:");
-                Console.WriteLine("1. Show data");
-                Console.WriteLine("---");
+                Console.WriteLine("1. Show Data");
+                Console.WriteLine("2. Add Data");
                 Console.WriteLine("3. Save Data");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("4. Delete Data");
+                Console.WriteLine("5. Exit");
                 Console.WriteLine("=============");
                 Console.WriteLine("Enter your option: ");
-                switch (Convert.ToInt32(Console.ReadLine()))
+                switch (Console.ReadLine())
                 {
-                    case 1:
+                    case "1":
                         Console.Clear();
                         person.ShowData("Person");
                         break;
-                    case 2:
+                    case "2":
                         Console.Clear();
                         Console.ReadKey();
                         break;
-                    case 3:
+                    case "3":
                         Console.Clear();
                         person.SaveData();
                         person.ShowData("Person");
                         break;
-                    case 4:
+                    case "4":
+                        Console.Clear();
+                        break;
+                    case "5":
                         isWorking = !isWorking;
                         break;
                     default:

@@ -11,5 +11,5 @@
   <person id="4">
     <name>Eriks</name>
   </person>
-  <test id="1">test</test>
+  <test>test</test>
 </people>
