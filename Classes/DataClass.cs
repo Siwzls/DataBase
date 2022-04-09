@@ -42,10 +42,10 @@ namespace DataBase
             XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
 
             XmlElement personElem = xDoc.CreateElement("test");
-            //XmlAttribute idAttr = xDoc.CreateAttribute("id");
+            XmlAttribute idAttr = xDoc.CreateAttribute("id");
 
             //idAttr.AppendChild(idText);
-            //personElem.Attributes.Append(idAttr);
+            personElem.Attributes.Append(idAttr);
             personElem.InnerText = "test";
 
             xRoot.AppendChild(personElem);
