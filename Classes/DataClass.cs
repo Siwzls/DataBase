@@ -39,12 +39,12 @@ namespace DataBase
         public void SaveData()
         {
             XmlElement xRoot = LoadFile(filename);
-            XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
 
             XmlElement personElem = xDoc.CreateElement("test");
             XmlAttribute idAttr = xDoc.CreateAttribute("id");
+            XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
 
-            //idAttr.AppendChild(idText);
+            idAttr.AppendChild(idText);
             personElem.Attributes.Append(idAttr);
             personElem.InnerText = "test";
 
