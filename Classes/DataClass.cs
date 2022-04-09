@@ -43,11 +43,10 @@ namespace DataBase
             xDoc.Load($@"..\..\..\DB\{filename}");
             XmlElement xRoot = xDoc.DocumentElement;
 
-            XmlElement personElem = xDoc.CreateElement("person");
-            XmlAttribute idAttr = xDoc.CreateAttribute("id");
+            XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
 
-            //XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId()));
-            XmlText idText = xDoc.CreateTextNode("1");
+            XmlElement personElem = xDoc.CreateElement("test");
+            XmlAttribute idAttr = xDoc.CreateAttribute("id");
 
             idAttr.AppendChild(idText);
             personElem.Attributes.Append(idAttr);
@@ -56,10 +55,8 @@ namespace DataBase
             xRoot.AppendChild(personElem);
             xDoc.Save("people.xml");
         }
-        public int GetFreeId()
+        public int GetFreeId(XmlElement xRoot)
         {
-            xDoc.Load($@"..\..\..\DB\{filename}");
-            XmlElement xRoot = xDoc.DocumentElement;
             int freeId = 0;
             if (xRoot != null)
             {

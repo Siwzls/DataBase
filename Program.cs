@@ -14,7 +14,7 @@ namespace DataBase
                 Console.Clear();
                 Console.WriteLine("Hello, choose option:");
                 Console.WriteLine("1. Show data");
-                Console.WriteLine("2. Get Id");
+                Console.WriteLine("---");
                 Console.WriteLine("3. Save Data");
                 Console.WriteLine("4. Exit");
                 Console.WriteLine("=============");
@@ -27,7 +27,6 @@ namespace DataBase
                         break;
                     case 2:
                         Console.Clear();
-                        Console.WriteLine(person.GetFreeId());
                         Console.ReadKey();
                         break;
                     case 3:
