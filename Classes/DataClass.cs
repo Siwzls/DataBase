@@ -54,15 +54,15 @@ namespace DataBase
         public void DeleteData(int dataID)
         {
             XmlElement xRoot = LoadFile(filename);
-
-            foreach (XmlElement xnode in xRoot)
+  
+            foreach (XmlNode xnode in xRoot)
             {
-                int id = Convert.ToInt32(xnode.Attributes.GetNamedItem("id").Value);
-                if (dataID == id)
+                if(Convert.ToInt32(xnode.Attributes.GetNamedItem("id").Value) == dataID)
                 {
-                    xnode.RemoveAll();
+                    xRoot.RemoveChild(xnode);
                 }
             }
+            xDoc.Save($@"..\..\..\DB\{filename}");
         }
         protected XmlElement LoadFile(string filename) 
         {

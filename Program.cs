@@ -35,7 +35,7 @@ namespace DataBase
                     case "3":
                         Console.Beep();
                         Console.Clear();
-                        person.DeleteData(0);
+                        person.DeleteData(2);
                         break;
                     case "4":
                         Console.Beep();
