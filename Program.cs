@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Xml;
 namespace DataBase
@@ -7,7 +7,7 @@ namespace DataBase
     {
         static void Main(string[] args)
         {
-            Person person = new Person("people.xml");
+            DataClass person = new Person("people.xml");
             bool isWorking = true;
             while (isWorking)
             {
@@ -35,6 +35,9 @@ namespace DataBase
                         person.ShowData("Person");
                         break;
                     case 4:
+                        isWorking = !isWorking;
+                        break;
+                    default:
                         isWorking = !isWorking;
                         break;
                 }

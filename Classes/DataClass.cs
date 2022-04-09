@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+using System;
 using System.Xml;
 namespace DataBase
 {
@@ -10,8 +9,7 @@ namespace DataBase
         XmlDocument xDoc = new XmlDocument();
         public void ShowData(string typeName)
         {
-            xDoc.Load($@"..\..\..\DB\{filename}");
-            XmlElement xRoot = xDoc.DocumentElement;
+            XmlElement xRoot = LoadFile(filename);
             if (xRoot != null)
             {
                 Console.WriteLine("############");
@@ -42,7 +40,6 @@ namespace DataBase
         {
             xDoc.Load($@"..\..\..\DB\{filename}");
             XmlElement xRoot = xDoc.DocumentElement;
-
             XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
 
             XmlElement personElem = xDoc.CreateElement("test");
@@ -54,6 +51,16 @@ namespace DataBase
 
             xRoot.AppendChild(personElem);
             xDoc.Save("people.xml");
+        }
+        public void DeleteData(int dataID)
+        {
+
+        }
+        protected XmlElement LoadFile(string filename) 
+        {
+            xDoc.Load($@"..\..\..\DB\{filename}");
+            XmlElement xRoot = xDoc.DocumentElement;
+            return xRoot;
         }
         public int GetFreeId(XmlElement xRoot)
         {
