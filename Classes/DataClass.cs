@@ -3,37 +3,31 @@ using System.Collections.Generic;
 using System.Xml;
 namespace DataBase
 {
-    abstract class DataClass
+    class DataClass
     {
         protected int id;
         protected string filename;
-        XmlDocument xDoc = new XmlDocument();
-        public void ShowData(string typeName)
+        protected static XmlDocument xDoc = new XmlDocument();
+        public static void ShowData(string typeName, string filename)
         {
+            Console.Clear();
             XmlElement xRoot = LoadFile(filename);
 
-                Console.WriteLine("############");
-                Console.WriteLine(typeName);
-                Console.WriteLine("############");
-                foreach (XmlElement xnode in xRoot)
+            Console.WriteLine("############");
+            Console.WriteLine(typeName);
+            Console.WriteLine("############");
+            foreach (XmlElement xnode in xRoot)
+            {
+                Console.WriteLine("ID:" + xnode.Attributes.GetNamedItem("id").Value);
+                foreach (XmlNode childnode in xnode.ChildNodes)
                 {
-                    foreach (XmlNode childnode in xnode.ChildNodes)
-                    {
-                        if (childnode.Name == "name")
-                        {
-                            Console.WriteLine($"Name: {childnode.InnerText}");
-                        }
-                        if (childnode.Name == "type")
-                        {
-                            Console.WriteLine($"Type: {childnode.InnerText}");
-                            Console.WriteLine("-------------------");
-                        }
-                    }
+                    Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
                 }
+                Console.WriteLine("-------------------");
+            }
             Console.ReadKey();
-            Console.Clear();
         }
-        public void AddData()
+        public virtual void AddData()
         {
             XmlElement xRoot = LoadFile(filename);
 
@@ -51,7 +45,7 @@ namespace DataBase
             xDoc.Save($@"..\..\..\DB\{filename}");
             Console.WriteLine("Data is saved!");
         }
-        public void DeleteData(int dataID)
+        public static void DeleteData(int dataID, string filename)
         {
             XmlElement xRoot = LoadFile(filename);
   
@@ -64,7 +58,7 @@ namespace DataBase
             }
             xDoc.Save($@"..\..\..\DB\{filename}");
         }
-        protected XmlElement LoadFile(string filename) 
+        protected static XmlElement LoadFile(string filename) 
         {
             xDoc.Load($@"..\..\..\DB\{filename}");
             XmlElement xRoot = xDoc.DocumentElement;
