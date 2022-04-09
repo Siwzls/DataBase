@@ -7,12 +7,11 @@ namespace DataBase
     {
         static void Main(string[] args)
         {
-            DataClass person = new Person("people.xml");
+            DataClass data = new DataClass();
             bool isWorking = true;
+            Console.WriteLine("Hello, choose option:");
             while (isWorking)
-            {
-                Console.Clear();
-                Console.WriteLine("Hello, choose option:");
+            {           
                 Console.WriteLine("1. Show Data");
                 Console.WriteLine("2. Add Data");
                 Console.WriteLine("3. Delete Data");
@@ -24,18 +23,59 @@ namespace DataBase
                     case "1":
                         Console.Beep();
                         Console.Clear();
-                        person.ShowData("Person");
+                        Console.WriteLine("Ñhoose data:");
+                        Console.WriteLine("1. People");
+                        Console.WriteLine("2. Buildings");
+                        Console.WriteLine("3. Hotel rooms");
+                        switch (Console.ReadLine()) 
+                        {         
+                            case "1":
+                                DataClass.ShowData("Persons", "people.xml");
+                                break;     
+                            case "2":
+                                DataClass.ShowData("Buildings", "building.xml");
+                                break;     
+                            case "3":
+                                DataClass.ShowData("Hotel rooms", "hotelRooms.xml");
+                                break;
+                        }
+                        
                         break;
                     case "2":
                         Console.Beep();
                         Console.Clear();
-                        person.AddData();
+                        Console.WriteLine("Ñhoose data to add:");
+                        Console.WriteLine("1. People");
+                        Console.WriteLine("2. Buildings");
+                        Console.WriteLine("3. Hotel rooms");
+                        data.AddData();
                         Console.ReadKey();
                         break;
                     case "3":
                         Console.Beep();
                         Console.Clear();
-                        person.DeleteData(2);
+                        Console.WriteLine("Ñhoose data to delete:");
+                        Console.WriteLine("1. People");
+                        Console.WriteLine("2. Buildings");
+                        Console.WriteLine("3. Hotel rooms");
+                        switch (Console.ReadLine())
+                        {
+                            case "1":
+                                DataClass.ShowData("Persons", "people.xml");
+                                Console.WriteLine("Enter ID: ");
+                                DataClass.DeleteData(Convert.ToInt32(Console.ReadLine()), "people.xml");
+                                break;
+                            case "2":
+                                DataClass.ShowData("Buildings", "building.xml");
+                                Console.WriteLine("Enter ID: ");
+                                DataClass.DeleteData(Convert.ToInt32(Console.ReadLine()), "building.xml");
+                                break;
+                            case "3":
+                                DataClass.ShowData("Hotel rooms", "hotelRooms.xml");
+                                Console.WriteLine("Enter ID: ");
+                                DataClass.DeleteData(Convert.ToInt32(Console.ReadLine()), "hotelRooms.xml");
+                                break;
+                        }
                         break;
                     case "4":
                         Console.Beep();
@@ -44,6 +84,7 @@ namespace DataBase
                     default:
                         isWorking = !isWorking;
                         break;
+                        Console.Clear();
                 }
             }
         }
