@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Xml;
 namespace DataBase
 {
@@ -10,8 +11,7 @@ namespace DataBase
         public void ShowData(string typeName)
         {
             XmlElement xRoot = LoadFile(filename);
-            if (xRoot != null)
-            {
+
                 Console.WriteLine("############");
                 Console.WriteLine(typeName);
                 Console.WriteLine("############");
@@ -28,29 +28,24 @@ namespace DataBase
                             Console.WriteLine($"Type: {childnode.InnerText}");
                             Console.WriteLine("-------------------");
                         }
-                        
                     }
                 }
-            }
             Console.ReadKey();
             Console.Clear();
         }
-        public void SaveData()
+        public void AddData()
         {
             XmlElement xRoot = LoadFile(filename);
 
-            //Создаются узлы
             XmlElement personElem = xDoc.CreateElement("person");
             XmlElement nameElem = xDoc.CreateElement("name");
             XmlAttribute idAttr = xDoc.CreateAttribute("id");
             XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
 
-            //Придаётся значение аттрибутам и тегам
             idAttr.AppendChild(idText);
             personElem.Attributes.Append(idAttr);   
             nameElem.InnerText = "TestName";
 
-            //Приклепляются теги друг к другу
             personElem.AppendChild(nameElem);
             xRoot.AppendChild(personElem);
             xDoc.Save($@"..\..\..\DB\{filename}");
@@ -69,7 +64,6 @@ namespace DataBase
                 }
             }
         }
-        //Метод, который загружает файл и возращает объект типа XmlElement 
         protected XmlElement LoadFile(string filename) 
         {
             xDoc.Load($@"..\..\..\DB\{filename}");
@@ -78,22 +72,22 @@ namespace DataBase
         }
         public int GetFreeId(XmlElement xRoot)
         {
-            int freeId = 0;
-            if (xRoot != null)
+            List<int> idList = new List<int>();
+            int i = 0;
+            foreach (XmlElement xnode in xRoot)
             {
-                int prevId = -1;
-                foreach (XmlElement xnode in xRoot)
-                {
-                    string attr = xnode.Attributes.GetNamedItem("id").Value;
-                    int currentId = Convert.ToInt32(attr);
+                string attrId = xnode.Attributes.GetNamedItem("id").Value;
+                int currentId = Convert.ToInt32(attrId);
 
-                    if (prevId + 1 == currentId) prevId = currentId;
-                    else
-                    {
-                        freeId = prevId + 1;
-                        break;
-                    }
-                }
+                idList.Add(currentId);
+                i++;
+            }
+            idList.Sort();
+            int freeId = 0;
+            for (i = 0; i < idList.Count; i++)
+            {
+                if (freeId == idList[i]) freeId++;
+                else break;
             }
             return freeId;
         }

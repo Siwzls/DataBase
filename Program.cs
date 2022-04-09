@@ -15,9 +15,8 @@ namespace DataBase
                 Console.WriteLine("Hello, choose option:");
                 Console.WriteLine("1. Show Data");
                 Console.WriteLine("2. Add Data");
-                Console.WriteLine("3. Save Data");
-                Console.WriteLine("4. Delete Data");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("3. Delete Data");
+                Console.WriteLine("4. Exit");
                 Console.WriteLine("=============");
                 Console.WriteLine("Enter your option: ");
                 switch (Console.ReadLine())
@@ -30,20 +29,15 @@ namespace DataBase
                     case "2":
                         Console.Beep();
                         Console.Clear();
+                        person.AddData();
                         Console.ReadKey();
                         break;
                     case "3":
                         Console.Beep();
                         Console.Clear();
-                        person.SaveData();
-                        Console.ReadKey();
-                        break;
-                    case "4":
-                        Console.Beep();
-                        Console.Clear();
                         person.DeleteData(0);
                         break;
-                    case "5":
+                    case "4":
                         Console.Beep();
                         isWorking = !isWorking;
                         break;

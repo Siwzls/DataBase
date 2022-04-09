@@ -6,6 +6,6 @@ namespace DataBase
 {
     class HotelRoom : DataClass
     {
-        int roomsCount;
+        //int roomsCount;
     }
 }
