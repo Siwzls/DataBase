@@ -17,7 +17,6 @@ namespace DataBase
                 Console.WriteLine("############");
                 foreach (XmlElement xnode in xRoot)
                 {
-                    XmlNode attr = xnode.Attributes.GetNamedItem("id");
                     foreach (XmlNode childnode in xnode.ChildNodes)
                     {
                         if (childnode.Name == "name")
@@ -40,20 +39,32 @@ namespace DataBase
         {
             XmlElement xRoot = LoadFile(filename);
 
-            XmlElement personElem = xDoc.CreateElement("test");
+            XmlElement personElem = xDoc.CreateElement("person");
+            XmlElement nameElem = xDoc.CreateElement("name");
             XmlAttribute idAttr = xDoc.CreateAttribute("id");
             XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
 
             idAttr.AppendChild(idText);
-            personElem.Attributes.Append(idAttr);
-            personElem.InnerText = "test";
+            personElem.Attributes.Append(idAttr);   
+            nameElem.InnerText = "TestName";
 
+            personElem.AppendChild(nameElem);
             xRoot.AppendChild(personElem);
             xDoc.Save("people.xml");
+            Console.WriteLine("Data is saved!");
         }
         public void DeleteData(int dataID)
         {
+            XmlElement xRoot = LoadFile(filename);
 
+            foreach (XmlElement xnode in xRoot)
+            {
+                int id = Convert.ToInt32(xnode.Attributes.GetNamedItem("id").Value);
+                if (dataID == id)
+                {
+                    xnode.RemoveAll();
+                }
+            }
         }
         protected XmlElement LoadFile(string filename) 
         {
@@ -71,9 +82,13 @@ namespace DataBase
                 {
                     string attr = xnode.Attributes.GetNamedItem("id").Value;
                     int currentId = Convert.ToInt32(attr);
-                    
+
                     if (prevId + 1 == currentId) prevId = currentId;
-                    else freeId = prevId + 1;
+                    else
+                    {
+                        freeId = prevId + 1;
+                        break;
+                    }
                 }
             }
             return freeId;

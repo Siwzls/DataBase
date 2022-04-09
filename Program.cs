@@ -33,10 +33,11 @@ namespace DataBase
                     case "3":
                         Console.Clear();
                         person.SaveData();
-                        person.ShowData("Person");
+                        Console.ReadKey();
                         break;
                     case "4":
                         Console.Clear();
+                        person.DeleteData(0);
                         break;
                     case "5":
                         isWorking = !isWorking;
