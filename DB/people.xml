@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <people>
   <person id="0">
     <name>Rihards</name>
@@ -10,5 +10,11 @@
   </person>
   <person id="4">
     <name>Eriks</name>
+  </person>
+  <person id="1">
+    <name>TestName</name>
+  </person>
+  <person id="1">
+    <name>TestName</name>
   </person>
 </people>

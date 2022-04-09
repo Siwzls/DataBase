@@ -23,23 +23,28 @@ namespace DataBase
                 switch (Console.ReadLine())
                 {
                     case "1":
+                        Console.Beep();
                         Console.Clear();
                         person.ShowData("Person");
                         break;
                     case "2":
+                        Console.Beep();
                         Console.Clear();
                         Console.ReadKey();
                         break;
                     case "3":
+                        Console.Beep();
                         Console.Clear();
                         person.SaveData();
                         Console.ReadKey();
                         break;
                     case "4":
+                        Console.Beep();
                         Console.Clear();
                         person.DeleteData(0);
                         break;
                     case "5":
+                        Console.Beep();
                         isWorking = !isWorking;
                         break;
                     default:

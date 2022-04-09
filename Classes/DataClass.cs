@@ -53,7 +53,7 @@ namespace DataBase
             //Приклепляются теги друг к другу
             personElem.AppendChild(nameElem);
             xRoot.AppendChild(personElem);
-            xDoc.Save("people.xml");
+            xDoc.Save($@"..\..\..\DB\{filename}");
             Console.WriteLine("Data is saved!");
         }
         public void DeleteData(int dataID)
@@ -69,6 +69,7 @@ namespace DataBase
                 }
             }
         }
+        //Метод, который загружает файл и возращает объект типа XmlElement 
         protected XmlElement LoadFile(string filename) 
         {
             xDoc.Load($@"..\..\..\DB\{filename}");
