@@ -84,6 +84,7 @@ namespace DataBase
                     default:
                         isWorking = !isWorking;
                         break;
+                        Console.Clear();
                 }
                 Console.Clear();
             }
