@@ -39,15 +39,18 @@ namespace DataBase
         {
             XmlElement xRoot = LoadFile(filename);
 
+            //Создаются узлы
             XmlElement personElem = xDoc.CreateElement("person");
             XmlElement nameElem = xDoc.CreateElement("name");
             XmlAttribute idAttr = xDoc.CreateAttribute("id");
             XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
 
+            //Придаётся значение аттрибутам и тегам
             idAttr.AppendChild(idText);
             personElem.Attributes.Append(idAttr);   
             nameElem.InnerText = "TestName";
 
+            //Приклепляются теги друг к другу
             personElem.AppendChild(nameElem);
             xRoot.AppendChild(personElem);
             xDoc.Save("people.xml");
