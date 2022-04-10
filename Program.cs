@@ -31,12 +31,15 @@ namespace DataBase
                         {         
                             case "1":
                                 DataClass.ShowData("Persons", "people.xml");
+                                Console.ReadKey();
                                 break;     
                             case "2":
                                 DataClass.ShowData("Buildings", "building.xml");
+                                Console.ReadKey();
                                 break;     
                             case "3":
                                 DataClass.ShowData("Hotel rooms", "hotelRooms.xml");
+                                Console.ReadKey();
                                 break;
                         }                       
                         break;
@@ -50,16 +53,20 @@ namespace DataBase
                         switch (Console.ReadLine())
                         {
                             case "1":
-                                data = new Person("people.xml");
-                                data.AddData();
+                                Console.Clear();
+                                Console.WriteLine("Enter data:");
+                                Console.WriteLine("============:");
+                                Console.WriteLine("Name:");
+                                string name = Console.ReadLine();
+                                Console.WriteLine("Last name:");
+                                string lastName = Console.ReadLine();
+                                Console.WriteLine("Age:");
+                                int age = Convert.ToInt32(Console.ReadLine());
+                                Person.AddData(new Person("people.xml", name, lastName, age));
                                 break;
                             case "2":
-                                data = new Building("building.xml");
-                                data.AddData();
                                 break;
                             case "3":
-                                data = new HotelRoom("hotelRooms.xml");
-                                data.AddData();
                                 break;
                         }
                         Console.ReadKey();
@@ -76,17 +83,17 @@ namespace DataBase
                             case "1":
                                 DataClass.ShowData("Persons", "people.xml");
                                 Console.WriteLine("Enter ID: ");
-                                DataClass.DeleteData(Convert.ToInt32(Console.ReadLine()), "people.xml");
+                                DataClass.DeleteData(Console.ReadLine(), "people.xml");
                                 break;
                             case "2":
                                 DataClass.ShowData("Buildings", "building.xml");
                                 Console.WriteLine("Enter ID: ");
-                                DataClass.DeleteData(Convert.ToInt32(Console.ReadLine()), "building.xml");
+                                DataClass.DeleteData(Console.ReadLine(), "building.xml");
                                 break;
                             case "3":
                                 DataClass.ShowData("Hotel rooms", "hotelRooms.xml");
                                 Console.WriteLine("Enter ID: ");
-                                DataClass.DeleteData(Convert.ToInt32(Console.ReadLine()), "hotelRooms.xml");
+                                DataClass.DeleteData(Console.ReadLine(), "hotelRooms.xml");
                                 break;
                         }
                         break;

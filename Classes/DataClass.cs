@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Xml;
 namespace DataBase
 {
-    class DataClass
+    abstract class DataClass
     {
-        protected int id;
         protected string filename;
         protected static XmlDocument xDoc = new XmlDocument();
         public static void ShowData(string typeName, string filename)
@@ -25,9 +24,8 @@ namespace DataBase
                 }
                 Console.WriteLine("-------------------");
             }
-            Console.ReadKey();
         }
-        public virtual void AddData()
+        /*public virtual void AddData(DataClass data)
         {
             XmlElement xRoot = LoadFile(filename);
 
@@ -44,17 +42,15 @@ namespace DataBase
             xRoot.AppendChild(personElem);
             xDoc.Save($@"..\..\..\DB\{filename}");
             Console.WriteLine("Data is saved!");
-        }
-        public static void DeleteData(int dataID, string filename)
+        }*/
+        public static void DeleteData(string dataID, string filename)
         {
             XmlElement xRoot = LoadFile(filename);
   
             foreach (XmlNode xnode in xRoot)
             {
-                if(Convert.ToInt32(xnode.Attributes.GetNamedItem("id").Value) == dataID)
-                {
+                if(Convert.ToString(xnode.Attributes.GetNamedItem("id")) == dataID)
                     xRoot.RemoveChild(xnode);
-                }
             }
             xDoc.Save($@"..\..\..\DB\{filename}");
         }
@@ -64,7 +60,7 @@ namespace DataBase
             XmlElement xRoot = xDoc.DocumentElement;
             return xRoot;
         }
-        public int GetFreeId(XmlElement xRoot)
+        public static int GetFreeId(XmlElement xRoot)
         {
             List<int> idList = new List<int>();
             int i = 0;

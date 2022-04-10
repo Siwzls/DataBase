@@ -13,15 +13,19 @@ namespace DataBase
         {
             this.filename = filename;
         }
-        public override void AddData()
+        public void AddData(Building data)
         {
             XmlElement xRoot = LoadFile(filename);
 
             XmlElement mainElem = xDoc.CreateElement("building");
+            XmlElement floorCountElem = xDoc.CreateElement("floorCount");
+
             XmlAttribute idAttr = xDoc.CreateAttribute("id");
             XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
+            floorCountElem.InnerText = "2";
 
             idAttr.AppendChild(idText);
+            mainElem.AppendChild(floorCountElem);
             mainElem.Attributes.Append(idAttr);   
 
             xRoot.AppendChild(mainElem);

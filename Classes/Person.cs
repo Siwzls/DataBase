@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml;
 
 namespace DataBase
 {
@@ -24,6 +25,35 @@ namespace DataBase
         {
             Console.WriteLine($"Person name: {name} {lastName}");
             Console.WriteLine($"Person age: {age}");
+        }
+        public static void AddData(Person data)
+        {
+            XmlElement xRoot = LoadFile(data.filename);
+
+            XmlElement mainElem = xDoc.CreateElement("person");
+            XmlElement nameElem = xDoc.CreateElement("name");
+            XmlElement lastNameElem = xDoc.CreateElement("lastName");
+            XmlElement ageElem = xDoc.CreateElement("age");
+
+            XmlAttribute idAttr = xDoc.CreateAttribute("id");
+            XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
+            XmlText nameText = xDoc.CreateTextNode(data.name);
+            XmlText lastNameText = xDoc.CreateTextNode(data.lastName);
+            XmlText ageText = xDoc.CreateTextNode(Convert.ToString(data.age));
+
+            idAttr.AppendChild(idText);
+            nameElem.AppendChild(nameText);
+            lastNameElem.AppendChild(lastNameText);
+            ageElem.AppendChild(ageText);
+
+            mainElem.Attributes.Append(idAttr);
+            mainElem.AppendChild(nameElem);
+            mainElem.AppendChild(lastNameElem);
+            mainElem.AppendChild(ageElem);
+
+            xRoot.AppendChild(mainElem);
+            xDoc.Save($@"..\..\..\DB\{data.filename}");
+            Console.WriteLine("Data is saved!");
         }
     }
 }
