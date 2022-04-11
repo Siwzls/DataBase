@@ -102,7 +102,6 @@ namespace DataBase
                         isWorking = !isWorking;
                         break;
                     default:
-                        isWorking = !isWorking;
                         break;
                 }
                 Console.Clear();

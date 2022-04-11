@@ -49,7 +49,7 @@ namespace DataBase
   
             foreach (XmlNode xnode in xRoot)
             {
-                if(Convert.ToString(xnode.Attributes.GetNamedItem("id")) == dataID)
+                if (Convert.ToString(xnode.Attributes.GetNamedItem("id").Value) == dataID)
                     xRoot.RemoveChild(xnode);
             }
             xDoc.Save($@"..\..\..\DB\{filename}");
