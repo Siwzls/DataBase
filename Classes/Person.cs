@@ -7,28 +7,9 @@ namespace DataBase
 {
     class Person : DataClass
     {
-        protected string name;
-        protected string lastName;
-        protected int age;
-
-        public Person(string filename){
-            this.filename = filename;
-        }
-        public Person(string filename, string name, string lastName, int age)
+        public static void AddData(string filename, string name ,string lastName, string age)
         {
-            this.filename = filename;
-            this.name = name;
-            this.lastName = lastName;
-            this.age = age;
-        }
-        public void Info()
-        {
-            Console.WriteLine($"Person name: {name} {lastName}");
-            Console.WriteLine($"Person age: {age}");
-        }
-        public static void AddData(Person data)
-        {
-            XmlElement xRoot = LoadFile(data.filename);
+            XmlElement xRoot = LoadFile(filename);
 
             XmlElement mainElem = xDoc.CreateElement("person");
             XmlElement nameElem = xDoc.CreateElement("name");
@@ -37,9 +18,9 @@ namespace DataBase
 
             XmlAttribute idAttr = xDoc.CreateAttribute("id");
             XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
-            XmlText nameText = xDoc.CreateTextNode(data.name);
-            XmlText lastNameText = xDoc.CreateTextNode(data.lastName);
-            XmlText ageText = xDoc.CreateTextNode(Convert.ToString(data.age));
+            XmlText nameText = xDoc.CreateTextNode(name);
+            XmlText lastNameText = xDoc.CreateTextNode(lastName);
+            XmlText ageText = xDoc.CreateTextNode(Convert.ToString(age));
 
             idAttr.AppendChild(idText);
             nameElem.AppendChild(nameText);
@@ -52,7 +33,7 @@ namespace DataBase
             mainElem.AppendChild(ageElem);
 
             xRoot.AppendChild(mainElem);
-            xDoc.Save($@"..\..\..\DB\{data.filename}");
+            xDoc.Save($@"..\..\..\DB\{filename}");
             Console.WriteLine("Data is saved!");
         }
     }

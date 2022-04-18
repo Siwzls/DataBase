@@ -7,24 +7,24 @@ namespace DataBase
 {
     class Building : DataClass
     {
-        public int floorCount;
-
-        public Building(string filename)
-        {
-            this.filename = filename;
-        }
-        public void AddData(Building data)
+        public static void AddData(string filename, string floorCount, string street)
         {
             XmlElement xRoot = LoadFile(filename);
 
             XmlElement mainElem = xDoc.CreateElement("building");
-            XmlElement floorCountElem = xDoc.CreateElement("floorCount");
+            XmlElement floorCountElem = xDoc.CreateElement("floorcount");
+            XmlElement streetElem = xDoc.CreateElement("street");
 
             XmlAttribute idAttr = xDoc.CreateAttribute("id");
             XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
-            floorCountElem.InnerText = "2";
+            XmlText floorCountText = xDoc.CreateTextNode(floorCount);
+            XmlText streetText = xDoc.CreateTextNode(street);
+
+            floorCountElem.AppendChild(floorCountText);
+            streetElem.AppendChild(streetText);
 
             idAttr.AppendChild(idText);
+            mainElem.AppendChild(streetElem);
             mainElem.AppendChild(floorCountElem);
             mainElem.Attributes.Append(idAttr);   
 

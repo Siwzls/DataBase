@@ -5,7 +5,6 @@ namespace DataBase
 {
     abstract class DataClass
     {
-        protected string filename;
         protected static XmlDocument xDoc = new XmlDocument();
         public static void ShowData(string typeName, string filename)
         {
@@ -25,24 +24,6 @@ namespace DataBase
                 Console.WriteLine("-------------------");
             }
         }
-        /*public virtual void AddData(DataClass data)
-        {
-            XmlElement xRoot = LoadFile(filename);
-
-            XmlElement personElem = xDoc.CreateElement("person");
-            XmlElement nameElem = xDoc.CreateElement("name");
-            XmlAttribute idAttr = xDoc.CreateAttribute("id");
-            XmlText idText = xDoc.CreateTextNode(Convert.ToString(GetFreeId(xRoot)));
-
-            idAttr.AppendChild(idText);
-            personElem.Attributes.Append(idAttr);   
-            nameElem.InnerText = "TestName";
-
-            personElem.AppendChild(nameElem);
-            xRoot.AppendChild(personElem);
-            xDoc.Save($@"..\..\..\DB\{filename}");
-            Console.WriteLine("Data is saved!");
-        }*/
         public static void DeleteData(string dataID, string filename)
         {
             XmlElement xRoot = LoadFile(filename);
@@ -59,6 +40,51 @@ namespace DataBase
             xDoc.Load($@"..\..\..\DB\{filename}");
             XmlElement xRoot = xDoc.DocumentElement;
             return xRoot;
+        }
+        public static string EnterData(Type type)
+        {
+            bool isWorking = true;
+            string data = Console.ReadLine();
+            while (isWorking)
+            {
+                if (data != null)
+                {
+                    if(!type.Equals(typeof(int)))
+                    {
+                        foreach (char c in data)
+                        {
+                            if (char.IsDigit(c))
+                            {
+                                Console.WriteLine("Data type is wrong");
+                                data = null;
+                                break;
+                            }
+                            else return data;
+                        }
+                    }
+                    else
+                    {
+                        foreach (char c in data)
+                        {
+                            if (char.IsLetter(c))
+                            {
+                                Console.WriteLine("Data type is wrong");
+                                data = null;
+                                break;
+                            }
+                            else return data;
+                        }
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Enter a new data:");
+                    data = Console.ReadLine();
+                    continue;
+                }
+            }
+            return null;
         }
         public static int GetFreeId(XmlElement xRoot)
         {

@@ -7,7 +7,6 @@ namespace DataBase
     {
         static void Main(string[] args)
         {
-            DataClass data;
             bool isWorking = true;
             Console.WriteLine("Hello, choose option:");
             while (isWorking)
@@ -20,6 +19,7 @@ namespace DataBase
                 Console.WriteLine("Enter your option: ");
                 switch (Console.ReadLine())
                 {
+                    //Show Data
                     case "1":
                         Console.Beep();
                         Console.Clear();
@@ -43,6 +43,7 @@ namespace DataBase
                                 break;
                         }                       
                         break;
+                    //Add data
                     case "2":
                         Console.Beep();
                         Console.Clear();
@@ -57,20 +58,36 @@ namespace DataBase
                                 Console.WriteLine("Enter data:");
                                 Console.WriteLine("============:");
                                 Console.WriteLine("Name:");
-                                string name = Console.ReadLine();
+                                string name = DataClass.EnterData(typeof(string));
                                 Console.WriteLine("Last name:");
-                                string lastName = Console.ReadLine();
+                                string lastName = DataClass.EnterData(typeof(string));
                                 Console.WriteLine("Age:");
-                                int age = Convert.ToInt32(Console.ReadLine());
-                                Person.AddData(new Person("people.xml", name, lastName, age));
+                                string age = DataClass.EnterData(typeof(int));
+                                Person.AddData("people.xml",
+                                name, lastName, age);
                                 break;
                             case "2":
+                                Console.Clear();
+                                Console.WriteLine("Enter data:");
+                                Console.WriteLine("============:");
+                                Console.WriteLine("Floor Count:");
+                                string floorCount = DataClass.EnterData(typeof(int));
+                                Console.WriteLine("Street:");
+                                string street = DataClass.EnterData(typeof(string));
+                                Building.AddData("building.xml", floorCount, street);
                                 break;
                             case "3":
+                                Console.Clear();
+                                Console.WriteLine("Enter data:");
+                                Console.WriteLine("============:");
+                                Console.WriteLine("Name:");
+                                string test = Console.ReadLine();
+                                //Person.AddData("hotelRooms.xml", name, lastName, age);
                                 break;
                         }
                         Console.ReadKey();
                         break;
+                    //Delete Data
                     case "3":
                         Console.Beep();
                         Console.Clear();

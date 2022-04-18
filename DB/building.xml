@@ -1,3 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <buildings>
+  <building id="0">
+    <street>veldres</street>
+    <floorcount>2</floorcount>
+  </building>
 </buildings>
