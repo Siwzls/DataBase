@@ -13,11 +13,12 @@ namespace DataBase
             {
                 Console.WriteLine("1. Show Data");
                 Console.WriteLine("2. Add Data");
-                Console.WriteLine("3. Delete Data");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("3. Search Data(WIP)");
+                Console.WriteLine("4. Delete Data");
+                Console.WriteLine("5. Exit");
                 Console.WriteLine("=============");
                 Console.WriteLine("Enter your option: ");
-                switch (Console.ReadLine())
+                switch (DataClass.EnterData(typeof(int)))
                 {
                     //Show Data
                     case "1":
@@ -27,7 +28,7 @@ namespace DataBase
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
-                        switch (Console.ReadLine()) 
+                        switch (DataClass.EnterData(typeof(int))) 
                         {         
                             case "1":
                                 DataClass.ShowData("Persons", "people.xml");
@@ -51,7 +52,7 @@ namespace DataBase
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
-                        switch (Console.ReadLine())
+                        switch (DataClass.EnterData(typeof(int)))
                         {
                             case "1":
                                 Console.Clear();
@@ -80,41 +81,52 @@ namespace DataBase
                                 Console.Clear();
                                 Console.WriteLine("Enter data:");
                                 Console.WriteLine("============:");
-                                Console.WriteLine("Name:");
-                                string test = Console.ReadLine();
-                                //Person.AddData("hotelRooms.xml", name, lastName, age);
+                                Console.WriteLine("Rooms count:");
+                                string roomCount = DataClass.EnterData(typeof(int));
+                                DataClass.ShowData("Buildings", "building.xml");
+                                Console.WriteLine("Building ID:");
+                                string buildingID;
+                                while (true)
+                                {
+                                    buildingID = DataClass.EnterData(typeof(int));
+                                    if (DataClass.CheckId("building.xml", buildingID)) break;
+                                } 
+                                HotelRoom.AddData("hotelRooms.xml", roomCount, buildingID);
                                 break;
                         }
                         Console.ReadKey();
                         break;
-                    //Delete Data
+                   //Search Data
                     case "3":
+                        break;
+                    //Delete Data
+                    case "4":
                         Console.Beep();
                         Console.Clear();
                         Console.WriteLine("Ñhoose data to delete:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
-                        switch (Console.ReadLine())
+                        switch (DataClass.EnterData(typeof(int)))
                         {
                             case "1":
                                 DataClass.ShowData("Persons", "people.xml");
                                 Console.WriteLine("Enter ID: ");
-                                DataClass.DeleteData(Console.ReadLine(), "people.xml");
+                                DataClass.DeleteData(DataClass.EnterData(typeof(int)), "people.xml");
                                 break;
                             case "2":
                                 DataClass.ShowData("Buildings", "building.xml");
                                 Console.WriteLine("Enter ID: ");
-                                DataClass.DeleteData(Console.ReadLine(), "building.xml");
+                                DataClass.DeleteData(DataClass.EnterData(typeof(int)), "building.xml");
                                 break;
                             case "3":
                                 DataClass.ShowData("Hotel rooms", "hotelRooms.xml");
                                 Console.WriteLine("Enter ID: ");
-                                DataClass.DeleteData(Console.ReadLine(), "hotelRooms.xml");
+                                DataClass.DeleteData(DataClass.EnterData(typeof(int)), "hotelRooms.xml");
                                 break;
                         }
                         break;
-                    case "4":
+                    case "5":
                         Console.Beep();
                         isWorking = !isWorking;
                         break;

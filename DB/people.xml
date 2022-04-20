@@ -10,14 +10,4 @@
     <lastName>Fabriks</lastName>
     <age>18</age>
   </person>
-  <person id="2">
-    <name>R</name>
-    <lastName>F</lastName>
-    <age>sdasd</age>
-  </person>
-  <person id="3">
-    <name>r</name>
-    <lastName>f</lastName>
-    <age>asdsa</age>
-  </person>
 </people>

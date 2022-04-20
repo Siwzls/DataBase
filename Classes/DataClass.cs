@@ -78,7 +78,6 @@ namespace DataBase
                 }
                 else
                 {
-                    Console.Clear();
                     Console.WriteLine("Enter a new data:");
                     data = Console.ReadLine();
                     continue;
@@ -106,6 +105,27 @@ namespace DataBase
                 else break;
             }
             return freeId;
+        }
+        public static bool CheckId(string filename, string id)
+        {
+            XmlElement xRoot = LoadFile(filename);
+            List<int> idList = new List<int>();
+            int i = 0;
+            foreach (XmlElement xnode in xRoot)
+            {
+                string attrId = xnode.Attributes.GetNamedItem("id").Value;
+                int currentId = Convert.ToInt32(attrId);
+
+                idList.Add(currentId);
+                i++;
+            }
+            idList.Sort();
+            for (i = 0; i < idList.Count; i++)
+            {
+                if (Convert.ToInt32(id) == idList[i]) return true;
+            }
+            Console.WriteLine("ID is wrong");
+            return false;
         }
     }
 }
