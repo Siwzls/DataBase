@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hotelRoooms>
+  <building id="0">
+    <roomCount>2</roomCount>
+    <buildingId>1</buildingId>
+  </building>
+</hotelRoooms>

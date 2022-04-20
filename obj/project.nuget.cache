@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Uqxd2D9QncPCt0VVLBE0z7VPoWarRZ2jG+7JXJIfnPt4xVwFN3S3K54JOOzmU2EBZxJTeBS9sCFAFqDUYGRyuA==",
+  "dgSpecHash": "FLJ6MrLDEFiyH7dQG1Zh/lIn1q1l0Fwnw6V9fL7MDAQXF9oP54idyimYGyGbdez6Ipjofy40FLOjU8/UVE7BCg==",
   "success": true,
   "projectFilePath": "C:\\Users\\swizl\\Documents\\@Teh\\C#\\DataBase\\DataBase\\DataBase.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\swizl\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.24\\microsoft.netcore.app.host.win-x64.3.1.24.nupkg.sha512"
+  ],
   "logs": []
 }
