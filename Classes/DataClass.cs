@@ -44,9 +44,48 @@ namespace DataBase
                 }  
             }
         }
-        public static void SearchDataByParams()
-        {
+        public static void SearchDataByParameters(string filename, string typeName)
+        { 
+            Console.Clear();
+            XmlElement xRoot = LoadFile(filename);
 
+            Console.WriteLine("############");
+            Console.WriteLine(typeName);
+            Console.WriteLine("############");
+            List<int> iList = new List<int>();
+            int i = 1;
+            foreach (XmlNode childnode in xRoot.ChildNodes[0].ChildNodes)
+            {
+                Console.WriteLine($"{i}. {childnode.Name.ToUpper()}");
+                iList.Add(i);
+                i++;
+            }
+            Console.WriteLine("-------------------");
+            Console.WriteLine("Enter parameter:");
+            int param = Convert.ToInt32(EnterData(typeof(int)));
+            Console.Clear();
+            Console.WriteLine("Enter data:");
+            string data = EnterData(typeof(Type));
+            Console.Clear();
+            for (i = 0; i < xRoot.ChildNodes.Count; i++)
+            {
+                for(int j = 0; j < xRoot.ChildNodes[i].ChildNodes.Count; j++)
+                {
+                    if (j+1 == param)
+                    {
+                        if (xRoot.ChildNodes[i].ChildNodes[j].InnerText == data)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("############");
+                            Console.WriteLine(typeName);
+                            Console.WriteLine("############");
+                            foreach (XmlNode childnode in xRoot.ChildNodes[i].ChildNodes) Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
+                            Console.ReadKey();
+                        }
+                    }
+                    else continue;
+                }
+            }
         }
         public static void DeleteData(string dataID, string filename)
         {
@@ -73,11 +112,11 @@ namespace DataBase
             {
                 if (data != null)
                 {
-                    if(!type.Equals(typeof(int)))
+                    if(type.Equals(typeof(int)))
                     {
                         foreach (char c in data)
                         {
-                            if (char.IsDigit(c))
+                            if (!char.IsDigit(c))
                             {
                                 Console.WriteLine("Data type is wrong");
                                 data = null;
@@ -86,11 +125,11 @@ namespace DataBase
                             else return data;
                         }
                     }
-                    else
+                    else if(type.Equals(typeof(string)))
                     {
                         foreach (char c in data)
                         {
-                            if (char.IsLetter(c))
+                            if (!char.IsLetter(c))
                             {
                                 Console.WriteLine("Data type is wrong");
                                 data = null;
@@ -99,6 +138,7 @@ namespace DataBase
                             else return data;
                         }
                     }
+                    else return data;
                 }
                 else
                 {
