@@ -26,7 +26,7 @@ namespace DataBase
             idAttr.AppendChild(idText);
             mainElem.AppendChild(streetElem);
             mainElem.AppendChild(floorCountElem);
-            mainElem.Attributes.Append(idAttr);   
+            mainElem.Attributes.Append(idAttr);
 
             xRoot.AppendChild(mainElem);
             xDoc.Save($@"..\..\..\DB\{filename}");

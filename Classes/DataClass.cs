@@ -24,6 +24,30 @@ namespace DataBase
                 Console.WriteLine("-------------------");
             }
         }
+        public static void SearchDataByID(string filename, string typeName, string id)
+        {
+            Console.Clear();
+            XmlElement xRoot = LoadFile(filename);
+
+            Console.WriteLine("############");
+            Console.WriteLine(typeName);
+            Console.WriteLine("############");
+            foreach (XmlElement xnode in xRoot)
+            {
+                if(xnode.Attributes.GetNamedItem("id").Value == id)
+                {
+                    Console.WriteLine("ID:" + xnode.Attributes.GetNamedItem("id").Value);
+                    foreach (XmlNode childnode in xnode.ChildNodes)
+                    {
+                        Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
+                    }
+                }  
+            }
+        }
+        public static void SearchDataByParams()
+        {
+
+        }
         public static void DeleteData(string dataID, string filename)
         {
             XmlElement xRoot = LoadFile(filename);

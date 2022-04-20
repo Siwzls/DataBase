@@ -98,6 +98,51 @@ namespace DataBase
                         break;
                    //Search Data
                     case "3":
+                        Console.Beep();
+                        Console.Clear();
+                        Console.WriteLine("Ñhoose data to search:");
+                        Console.WriteLine("1. People");
+                        Console.WriteLine("2. Buildings");
+                        Console.WriteLine("3. Hotel rooms");
+                        switch (DataClass.EnterData(typeof(int)))
+                        {
+                            case "1":
+                                Console.Clear();
+                                Console.WriteLine("Enter ID:");
+                                string idPeople;
+                                while (true)
+                                {
+                                    idPeople = DataClass.EnterData(typeof(int));
+                                    if (DataClass.CheckId("people.xml", idPeople)) break;
+                                }
+                                DataClass.SearchDataByID("people.xml", "People", idPeople);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                Console.Clear();
+                                Console.WriteLine("Enter ID:");
+                                string idBuilding;
+                                while (true)
+                                {
+                                    idBuilding = DataClass.EnterData(typeof(int));
+                                    if (DataClass.CheckId("building.xml", idBuilding)) break;
+                                }
+                                DataClass.SearchDataByID("building.xml", "Buildings", idBuilding);
+                                Console.ReadKey();
+                                break;
+                            case "3":
+                                Console.Clear();
+                                Console.WriteLine("Enter ID:");
+                                string idHotelRoom;
+                                while (true)
+                                {
+                                    idHotelRoom = DataClass.EnterData(typeof(int));
+                                    if (DataClass.CheckId("hotelRooms.xml", idHotelRoom)) break;
+                                }
+                                DataClass.SearchDataByID("hotelRooms.xml", "Hotel Rooms", idHotelRoom);
+                                Console.ReadKey();
+                                break;
+                        }
                         break;
                     //Delete Data
                     case "4":
