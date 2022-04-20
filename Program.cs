@@ -7,12 +7,10 @@ namespace DataBase
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
             Building build = new Building(2);
 
             Console.WriteLine(build.floorCount);
             Console.ReadKey();
-=======
             bool isWorking = true;
             Console.WriteLine("Hello, choose option:");
             while (isWorking)
@@ -186,7 +184,6 @@ namespace DataBase
                 }
                 Console.Clear();
             }
->>>>>>> develop
         }
     }
 }
