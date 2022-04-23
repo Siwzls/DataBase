@@ -34,18 +34,18 @@ namespace DataBase
             Console.WriteLine("############");
             foreach (XmlElement xnode in xRoot)
             {
-                if(xnode.Attributes.GetNamedItem("id").Value == id)
+                if (xnode.Attributes.GetNamedItem("id").Value == id)
                 {
                     Console.WriteLine("ID:" + xnode.Attributes.GetNamedItem("id").Value);
                     foreach (XmlNode childnode in xnode.ChildNodes)
                     {
                         Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
                     }
-                }  
+                }
             }
         }
         public static void SearchDataByParameters(string filename, string typeName)
-        { 
+        {
             Console.Clear();
             XmlElement xRoot = LoadFile(filename);
 
@@ -69,9 +69,9 @@ namespace DataBase
             Console.Clear();
             for (i = 0; i < xRoot.ChildNodes.Count; i++)
             {
-                for(int j = 0; j < xRoot.ChildNodes[i].ChildNodes.Count; j++)
+                for (int j = 0; j < xRoot.ChildNodes[i].ChildNodes.Count; j++)
                 {
-                    if (j+1 == param)
+                    if (j + 1 == param)
                     {
                         if (xRoot.ChildNodes[i].ChildNodes[j].InnerText == data)
                         {
@@ -84,6 +84,38 @@ namespace DataBase
                         }
                     }
                     else continue;
+                }
+            }
+        }
+        public static void SearchDataBySummary()
+        { 
+            Console.Clear();
+            XmlElement xRoot = LoadFile("people.xml");
+
+            Console.WriteLine("Enter data:");
+            string data = EnterData(typeof(Type));
+            Console.Clear();
+
+            for (int i = 0; i < xRoot.ChildNodes.Count; i++)
+            {
+                for (int j = 0; j < xRoot.ChildNodes[i].ChildNodes.Count; j++)
+                {
+                    if (xRoot.ChildNodes[i].ChildNodes[j].InnerText == data)
+                    {
+                        Console.WriteLine("===================");
+                        Console.WriteLine($"Person ID: {xRoot.ChildNodes[i].Attributes.GetNamedItem("id").Value}");
+                        Console.WriteLine("-------------------");
+                        foreach (XmlNode childnode in xRoot.ChildNodes[i].ChildNodes)
+                        {
+                            
+                            Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
+                        }
+                        Console.WriteLine("===================");
+                        Console.WriteLine();
+                        Console.WriteLine("-  -  -  -  -  -  -");
+                        Console.WriteLine();
+                    }
+                    
                 }
             }
         }
