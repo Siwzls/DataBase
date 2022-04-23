@@ -12,3 +12,17 @@ C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataB
 C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.dll
 C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.pdb
 C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.genruntimeconfig.cache
+C:\Users\Andrew\Desktop\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.exe
+C:\Users\Andrew\Desktop\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.deps.json
+C:\Users\Andrew\Desktop\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.runtimeconfig.json
+C:\Users\Andrew\Desktop\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.runtimeconfig.dev.json
+C:\Users\Andrew\Desktop\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.dll
+C:\Users\Andrew\Desktop\DataBase\DataBase\bin\Debug\netcoreapp3.1\DataBase.pdb
+C:\Users\Andrew\Desktop\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.csproj.AssemblyReference.cache
+C:\Users\Andrew\Desktop\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andrew\Desktop\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.AssemblyInfoInputs.cache
+C:\Users\Andrew\Desktop\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.AssemblyInfo.cs
+C:\Users\Andrew\Desktop\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\Desktop\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.dll
+C:\Users\Andrew\Desktop\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.pdb
+C:\Users\Andrew\Desktop\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.genruntimeconfig.cache

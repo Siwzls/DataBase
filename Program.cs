@@ -103,6 +103,8 @@ namespace DataBase
                         Console.WriteLine("Search data by:");
                         Console.WriteLine("1. ID");
                         Console.WriteLine("2. Parameters");
+                        Console.WriteLine("3. Summary");
+                       
                         switch (DataClass.EnterData(typeof(int)))
                         {
                             case "1":
@@ -172,6 +174,13 @@ namespace DataBase
                                         Console.ReadKey();
                                         break;
                                 }
+                                break;
+                            case "3":
+                                Console.Clear();
+                                DataClass.SearchDataBySummary();
+                                Console.WriteLine("Press Enter to continue . . .");
+                                Console.ReadKey();
+
                                 break;
                         }
                         break;
