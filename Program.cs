@@ -177,8 +177,7 @@ namespace DataBase
                                 break;
                             case "3":
                                 Console.Clear();
-                                DataClass.SearchDataBySummary();
-                                Console.WriteLine("Press Enter to continue . . .");
+                                DataClass.SearchDataBySummary();           
                                 Console.ReadKey();
 
                                 break;

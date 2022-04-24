@@ -17,10 +17,7 @@ namespace DataBase
             foreach (XmlElement xnode in xRoot)
             {
                 Console.WriteLine("ID:" + xnode.Attributes.GetNamedItem("id").Value);
-                foreach (XmlNode childnode in xnode.ChildNodes)
-                {
-                    Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
-                }
+                foreach (XmlNode childnode in xnode.ChildNodes) Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
                 Console.WriteLine("-------------------");
             }
         }
@@ -88,36 +85,38 @@ namespace DataBase
             }
         }
         public static void SearchDataBySummary()
-        { 
-            Console.Clear();
-            XmlElement xRoot = LoadFile("people.xml");
+        {  
+            string[] filesToLoad = { "people.xml", "building.xml", "hotelRooms.xml" };
 
+            Console.Clear();
             Console.WriteLine("Enter data:");
             string data = EnterData(typeof(Type));
-            Console.Clear();
-
-            for (int i = 0; i < xRoot.ChildNodes.Count; i++)
+            for (int x = 0; x < filesToLoad.Length; x++)
             {
-                for (int j = 0; j < xRoot.ChildNodes[i].ChildNodes.Count; j++)
+                Console.Clear();
+                XmlElement xRoot = LoadFile(filesToLoad[x]);
+
+                for (int i = 0; i < xRoot.ChildNodes.Count; i++)
                 {
-                    if (xRoot.ChildNodes[i].ChildNodes[j].InnerText == data)
+                    for (int j = 0; j < xRoot.ChildNodes[i].ChildNodes.Count; j++)
                     {
-                        Console.WriteLine("===================");
-                        Console.WriteLine($"Person ID: {xRoot.ChildNodes[i].Attributes.GetNamedItem("id").Value}");
-                        Console.WriteLine("-------------------");
-                        foreach (XmlNode childnode in xRoot.ChildNodes[i].ChildNodes)
+                        if (xRoot.ChildNodes[i].ChildNodes[j].InnerText == data)
                         {
+                            Console.WriteLine("===================");
+                            Console.WriteLine($"Person ID: {xRoot.ChildNodes[i].Attributes.GetNamedItem("id").Value}");
+                            Console.WriteLine("-------------------");
+                            foreach (XmlNode childnode in xRoot.ChildNodes[i].ChildNodes) Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
+                            Console.WriteLine("===================");
+                            Console.WriteLine();
+                            Console.WriteLine("-  -  -  -  -  -  -");
+                            Console.WriteLine();
                             
-                            Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
                         }
-                        Console.WriteLine("===================");
-                        Console.WriteLine();
-                        Console.WriteLine("-  -  -  -  -  -  -");
-                        Console.WriteLine();
                     }
-                    
                 }
-            }
+                Console.WriteLine("Press Enter to continue . . .");
+                Console.ReadKey();
+            } 
         }
         public static void DeleteData(string dataID, string filename)
         {

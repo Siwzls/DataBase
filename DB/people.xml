@@ -15,9 +15,4 @@
     <lastName>Zukovs</lastName>
     <age>18</age>
   </person>
-	<person id="3">
-		<name>Rihards</name>
-		<lastName>HitovajaRama</lastName>
-		<age>18</age>
-	</person>
 </people>
