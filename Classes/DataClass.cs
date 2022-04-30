@@ -142,6 +142,7 @@ namespace DataBase
                 string inputID = EnterData(typeof(int));
                 Console.Clear();
 
+                //Выводит параметры
                 foreach (XmlElement xnode in xRoot)
                 {
                     if (xnode.Attributes.GetNamedItem("id").Value == inputID)
@@ -154,6 +155,7 @@ namespace DataBase
                 }
                 Console.WriteLine("-------------------");
 
+                //Сохраняет номера параметров
                 List<int> iList = new List<int>();
                 int i = 1;
                 foreach (XmlNode childnode in xRoot.ChildNodes[0].ChildNodes)
