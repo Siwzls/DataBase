@@ -14,12 +14,24 @@ namespace DataBase
             Console.WriteLine("############");
             Console.WriteLine(typeName);
             Console.WriteLine("############");
-            foreach (XmlElement xnode in xRoot)
+            int currentID = 0;
+            int dataCount = 0;
+            while(true)
             {
-                Console.WriteLine("ID:" + xnode.Attributes.GetNamedItem("id").Value);
-                foreach (XmlNode childnode in xnode.ChildNodes) Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
-                Console.WriteLine("-------------------");
+                foreach (XmlElement xnode in xRoot)
+                {
+                    if (Convert.ToInt32(xnode.Attributes.GetNamedItem("id").Value) == currentID)
+                    {
+                        Console.WriteLine("ID:" + xnode.Attributes.GetNamedItem("id").Value);
+                        foreach (XmlNode childnode in xnode.ChildNodes) Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
+                        Console.WriteLine("-------------------");
+                        dataCount++;
+                    } 
+                }
+                currentID++;
+                if (dataCount == xRoot.ChildNodes.Count) break;
             }
+            
         }
         public static void SearchDataByID(string filename, string typeName, string id)
         {
