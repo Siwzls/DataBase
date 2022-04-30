@@ -16,7 +16,7 @@ namespace DataBase
             Console.WriteLine("############");
             int currentID = 0;
             int dataCount = 0;
-            while(true)
+            while (true)
             {
                 foreach (XmlElement xnode in xRoot)
                 {
@@ -26,12 +26,11 @@ namespace DataBase
                         foreach (XmlNode childnode in xnode.ChildNodes) Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
                         Console.WriteLine("-------------------");
                         dataCount++;
-                    } 
+                    }
                 }
                 currentID++;
                 if (dataCount == xRoot.ChildNodes.Count) break;
             }
-            
         }
         public static void SearchDataByID(string filename, string typeName, string id)
         {
@@ -61,6 +60,7 @@ namespace DataBase
             Console.WriteLine("############");
             Console.WriteLine(typeName);
             Console.WriteLine("############");
+
             List<int> iList = new List<int>();
             int i = 1;
             foreach (XmlNode childnode in xRoot.ChildNodes[0].ChildNodes)
@@ -130,15 +130,70 @@ namespace DataBase
                 Console.ReadKey();
             } 
         }
+        public static void EditData(string filename, string typeName)
+        {
+            Console.Clear();
+
+            ShowData(typeName, filename);
+            XmlElement xRoot = xDoc.DocumentElement;
+            if (xRoot.ChildNodes.Count > 1)
+            {
+                Console.WriteLine("Enter ID:");
+                string inputID = EnterData(typeof(int));
+                Console.Clear();
+
+                foreach (XmlElement xnode in xRoot)
+                {
+                    if (xnode.Attributes.GetNamedItem("id").Value == inputID)
+                    {
+                        foreach (XmlNode childnode in xnode.ChildNodes)
+                        {
+                            Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
+                        }
+                    }
+                }
+                Console.WriteLine("-------------------");
+
+                List<int> iList = new List<int>();
+                int i = 1;
+                foreach (XmlNode childnode in xRoot.ChildNodes[0].ChildNodes)
+                {
+                    Console.WriteLine($"{i}. {childnode.Name.ToUpper()}");
+                    iList.Add(i);
+                    i++;
+                }
+                Console.WriteLine("Select parameter to edit:");
+                int param = Convert.ToInt32(EnterData(typeof(int)));
+                Console.Clear();
+                Console.WriteLine("Enter data:");
+                string data = EnterData(typeof(Type));
+                Console.Clear();
+                foreach (XmlNode xnode in xRoot)
+                {
+                    if (xnode.Attributes.GetNamedItem("id").Value == inputID)
+                    {
+
+                        for (i = 0; i < xRoot.ChildNodes[0].ChildNodes.Count; i++)
+                        {
+                            if (i == param - 1)
+                            {
+                                xnode.ChildNodes[i].InnerText = data;
+                                break;
+                            }
+                        }
+                    }
+                }
+                xDoc.Save(@"..\..\..\DB\" + filename);
+                ShowData(typeName, filename);
+                Console.WriteLine("Data is saved!");
+                Console.ReadKey();
+            }
+        }
         public static void DeleteData(string dataID, string filename)
         {
             XmlElement xRoot = LoadFile(filename);
   
-            foreach (XmlNode xnode in xRoot)
-            {
-                if (Convert.ToString(xnode.Attributes.GetNamedItem("id").Value) == dataID)
-                    xRoot.RemoveChild(xnode);
-            }
+            foreach (XmlNode xnode in xRoot) if (xnode.Attributes.GetNamedItem("id").Value == dataID) xRoot.RemoveChild(xnode);
             xDoc.Save($@"..\..\..\DB\{filename}");
         }
         protected static XmlElement LoadFile(string filename) 

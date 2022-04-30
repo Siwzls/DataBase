@@ -22,8 +22,8 @@ namespace DataBase
 
             roomCountElem.AppendChild(roomCountText);
             buildingIdElem.AppendChild(buildingIdText);
-
             idAttr.AppendChild(idText);
+
             mainElem.Attributes.Append(idAttr);
             mainElem.AppendChild(roomCountElem);
             mainElem.AppendChild(buildingIdElem);

@@ -1,6 +1,4 @@
 using System;
-using System.IO;
-using System.Xml;
 namespace DataBase
 {
     class Program
@@ -13,9 +11,10 @@ namespace DataBase
             {
                 Console.WriteLine("1. Show Data");
                 Console.WriteLine("2. Add Data");
-                Console.WriteLine("3. Search Data(WIP)");
-                Console.WriteLine("4. Delete Data");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("3. Edit Data");
+                Console.WriteLine("4. Search Data(WIP)");
+                Console.WriteLine("5. Delete Data");
+                Console.WriteLine("6. Exit");
                 Console.WriteLine("=============");
                 Console.WriteLine("Enter your option: ");
                 switch (DataClass.EnterData(typeof(int)))
@@ -96,8 +95,12 @@ namespace DataBase
                         }
                         Console.ReadKey();
                         break;
-                   //Search Data
+                    //Edit Data
                     case "3":
+                        DataClass.EditData("people.xml", "Person"); 
+                        break;
+                   //Search Data
+                    case "4":
                         Console.Beep();
                         Console.Clear();
                         Console.WriteLine("Search data by:");
@@ -184,7 +187,7 @@ namespace DataBase
                         }
                         break;
                     //Delete Data
-                    case "4":
+                    case "5":
                         Console.Beep();
                         Console.Clear();
                         Console.WriteLine("Ñhoose data to delete:");
@@ -210,7 +213,7 @@ namespace DataBase
                                 break;
                         }
                         break;
-                    case "5":
+                    case "6":
                         Console.Beep();
                         isWorking = !isWorking;
                         break;
