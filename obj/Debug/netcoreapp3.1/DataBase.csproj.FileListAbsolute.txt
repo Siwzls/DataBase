@@ -28,3 +28,5 @@ C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\netcoreapp3.1\Acces
 C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.xml
 C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\netcoreapp3.1\System.CodeDom.xml
 C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.csproj.CopyComplete
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\WinFormsApp1.Form1.resources
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\netcoreapp3.1\DataBase.csproj.GenerateResource.cache

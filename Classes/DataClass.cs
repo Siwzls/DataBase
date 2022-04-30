@@ -8,12 +8,8 @@ namespace DataBase
         protected static XmlDocument xDoc = new XmlDocument();
         public static void ShowData(string typeName, string filename)
         {
-            Console.Clear();
             XmlElement xRoot = LoadFile(filename);
 
-            Console.WriteLine("############");
-            Console.WriteLine(typeName);
-            Console.WriteLine("############");
             foreach (XmlElement xnode in xRoot)
             {
                 Console.WriteLine("ID:" + xnode.Attributes.GetNamedItem("id").Value);
@@ -26,12 +22,8 @@ namespace DataBase
         }
         public static void SearchDataByID(string filename, string typeName, string id)
         {
-            Console.Clear();
             XmlElement xRoot = LoadFile(filename);
 
-            Console.WriteLine("############");
-            Console.WriteLine(typeName);
-            Console.WriteLine("############");
             foreach (XmlElement xnode in xRoot)
             {
                 if(xnode.Attributes.GetNamedItem("id").Value == id)
@@ -46,12 +38,8 @@ namespace DataBase
         }
         public static void SearchDataByParameters(string filename, string typeName)
         { 
-            Console.Clear();
             XmlElement xRoot = LoadFile(filename);
 
-            Console.WriteLine("############");
-            Console.WriteLine(typeName);
-            Console.WriteLine("############");
             List<int> iList = new List<int>();
             int i = 1;
             foreach (XmlNode childnode in xRoot.ChildNodes[0].ChildNodes)
@@ -60,13 +48,11 @@ namespace DataBase
                 iList.Add(i);
                 i++;
             }
-            Console.WriteLine("-------------------");
-            Console.WriteLine("Enter parameter:");
+
             int param = Convert.ToInt32(EnterData(typeof(int)));
-            Console.Clear();
-            Console.WriteLine("Enter data:");
+
             string data = EnterData(typeof(Type));
-            Console.Clear();
+
             for (i = 0; i < xRoot.ChildNodes.Count; i++)
             {
                 for(int j = 0; j < xRoot.ChildNodes[i].ChildNodes.Count; j++)
@@ -118,7 +104,7 @@ namespace DataBase
                         {
                             if (!char.IsDigit(c))
                             {
-                                Console.WriteLine("Data type is wrong");
+
                                 data = null;
                                 break;
                             }
@@ -131,7 +117,7 @@ namespace DataBase
                         {
                             if (!char.IsLetter(c))
                             {
-                                Console.WriteLine("Data type is wrong");
+
                                 data = null;
                                 break;
                             }
@@ -142,7 +128,7 @@ namespace DataBase
                 }
                 else
                 {
-                    Console.WriteLine("Enter a new data:");
+
                     data = Console.ReadLine();
                     continue;
                 }
@@ -188,7 +174,7 @@ namespace DataBase
             {
                 if (Convert.ToInt32(id) == idList[i]) return true;
             }
-            Console.WriteLine("ID is wrong");
+
             return false;
         }
     }
