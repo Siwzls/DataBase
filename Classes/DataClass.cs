@@ -167,18 +167,20 @@ namespace DataBase
                 Console.WriteLine("Select parameter to edit:");
                 int param = Convert.ToInt32(EnterData(typeof(int)));
                 Console.Clear();
-                Console.WriteLine("Enter data:");
-                string data = EnterData(typeof(Type));
-                Console.Clear();
                 foreach (XmlNode xnode in xRoot)
                 {
                     if (xnode.Attributes.GetNamedItem("id").Value == inputID)
                     {
-
                         for (i = 0; i < xRoot.ChildNodes[0].ChildNodes.Count; i++)
                         {
                             if (i == param - 1)
                             {
+                                Type type;
+                                if (char.IsDigit(xnode.ChildNodes[i].InnerText[0])) type = typeof(int);
+                                else type = typeof(string);
+
+                                Console.WriteLine("Enter data:");
+                                string data = EnterData(type);
                                 xnode.ChildNodes[i].InnerText = data;
                                 break;
                             }

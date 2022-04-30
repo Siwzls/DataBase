@@ -97,7 +97,24 @@ namespace DataBase
                         break;
                     //Edit Data
                     case "3":
-                        DataClass.EditData("people.xml", "Person"); 
+                        Console.Beep();
+                        Console.Clear();
+                        Console.WriteLine("Ñhoose data to add:");
+                        Console.WriteLine("1. People");
+                        Console.WriteLine("2. Buildings");
+                        Console.WriteLine("3. Hotel rooms");
+                        switch (DataClass.EnterData(typeof(int)))
+                        {
+                            case "1":
+                                DataClass.EditData("people.xml", "Persons");
+                                break;
+                            case "2":
+                                DataClass.EditData("building.xml", "Building");
+                                break;
+                            case "3":
+                                DataClass.EditData("hotelRooms.xml", "Hptel rooms");
+                                break;
+                        }
                         break;
                    //Search Data
                     case "4":
