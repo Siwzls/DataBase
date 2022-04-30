@@ -10,4 +10,9 @@
     <lastName>Fabriks</lastName>
     <age>18</age>
   </person>
+  <person id="2">
+    <name>Rihards</name>
+    <lastName>Zukovs</lastName>
+    <age>18</age>
+  </person>
 </people>

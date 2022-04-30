@@ -10,14 +10,25 @@ namespace DataBase
         {
             XmlElement xRoot = LoadFile(filename);
 
-            foreach (XmlElement xnode in xRoot)
-            {
-                Console.WriteLine("ID:" + xnode.Attributes.GetNamedItem("id").Value);
-                foreach (XmlNode childnode in xnode.ChildNodes)
-                {
-                    Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
-                }
-                Console.WriteLine("-------------------");
+            Console.WriteLine("############");
+            Console.WriteLine(typeName);
+            Console.WriteLine("############");
+            int currentID = 0;
+            int dataCount = 0;
+            while (true)
+            {
+                foreach (XmlElement xnode in xRoot)
+                {
+                    if (Convert.ToInt32(xnode.Attributes.GetNamedItem("id").Value) == currentID)
+                    {
+                        Console.WriteLine("ID:" + xnode.Attributes.GetNamedItem("id").Value);
+                        foreach (XmlNode childnode in xnode.ChildNodes) Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
+                        Console.WriteLine("-------------------");
+                        dataCount++;
+                    }
+                }
+                currentID++;
+                if (dataCount == xRoot.ChildNodes.Count) break;
             }
         }
         public static void SearchDataByID(string filename, string typeName, string id)
@@ -26,19 +37,24 @@ namespace DataBase
 
             foreach (XmlElement xnode in xRoot)
             {
-                if(xnode.Attributes.GetNamedItem("id").Value == id)
+                if (xnode.Attributes.GetNamedItem("id").Value == id)
                 {
                     Console.WriteLine("ID:" + xnode.Attributes.GetNamedItem("id").Value);
                     foreach (XmlNode childnode in xnode.ChildNodes)
                     {
                         Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
                     }
-                }  
+                }
             }
         }
         public static void SearchDataByParameters(string filename, string typeName)
-        { 
+        {
+            Console.Clear();
             XmlElement xRoot = LoadFile(filename);
+
+            Console.WriteLine("############");
+            Console.WriteLine(typeName);
+            Console.WriteLine("############");
 
             List<int> iList = new List<int>();
             int i = 1;
@@ -55,9 +71,9 @@ namespace DataBase
 
             for (i = 0; i < xRoot.ChildNodes.Count; i++)
             {
-                for(int j = 0; j < xRoot.ChildNodes[i].ChildNodes.Count; j++)
+                for (int j = 0; j < xRoot.ChildNodes[i].ChildNodes.Count; j++)
                 {
-                    if (j+1 == param)
+                    if (j + 1 == param)
                     {
                         if (xRoot.ChildNodes[i].ChildNodes[j].InnerText == data)
                         {
@@ -72,16 +88,109 @@ namespace DataBase
                     else continue;
                 }
             }
+        }
+        public static void SearchDataBySummary()
+        {  
+            string[] filesToLoad = { "people.xml", "building.xml", "hotelRooms.xml" };
+
+            Console.Clear();
+            Console.WriteLine("Enter data:");
+            string data = EnterData(typeof(Type));
+            for (int x = 0; x < filesToLoad.Length; x++)
+            {
+                Console.Clear();
+                XmlElement xRoot = LoadFile(filesToLoad[x]);
+
+                for (int i = 0; i < xRoot.ChildNodes.Count; i++)
+                {
+                    for (int j = 0; j < xRoot.ChildNodes[i].ChildNodes.Count; j++)
+                    {
+                        if (xRoot.ChildNodes[i].ChildNodes[j].InnerText == data)
+                        {
+                            Console.WriteLine("===================");
+                            Console.WriteLine($"Person ID: {xRoot.ChildNodes[i].Attributes.GetNamedItem("id").Value}");
+                            Console.WriteLine("-------------------");
+                            foreach (XmlNode childnode in xRoot.ChildNodes[i].ChildNodes) Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
+                            Console.WriteLine("===================");
+                            Console.WriteLine();
+                            Console.WriteLine("-  -  -  -  -  -  -");
+                            Console.WriteLine();
+                            
+                        }
+                    }
+                }
+                Console.WriteLine("Press Enter to continue . . .");
+                Console.ReadKey();
+            } 
+        }
+        public static void EditData(string filename, string typeName)
+        {
+            Console.Clear();
+
+            ShowData(typeName, filename);
+            XmlElement xRoot = xDoc.DocumentElement;
+            if (xRoot.ChildNodes.Count > 1)
+            {
+                Console.WriteLine("Enter ID:");
+                string inputID = EnterData(typeof(int));
+                Console.Clear();
+
+                //������� ���������
+                foreach (XmlElement xnode in xRoot)
+                {
+                    if (xnode.Attributes.GetNamedItem("id").Value == inputID)
+                    {
+                        foreach (XmlNode childnode in xnode.ChildNodes)
+                        {
+                            Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
+                        }
+                    }
+                }
+                Console.WriteLine("-------------------");
+
+                //��������� ������ ����������
+                List<int> iList = new List<int>();
+                int i = 1;
+                foreach (XmlNode childnode in xRoot.ChildNodes[0].ChildNodes)
+                {
+                    Console.WriteLine($"{i}. {childnode.Name.ToUpper()}");
+                    iList.Add(i);
+                    i++;
+                }
+                Console.WriteLine("Select parameter to edit:");
+                int param = Convert.ToInt32(EnterData(typeof(int)));
+                Console.Clear();
+                foreach (XmlNode xnode in xRoot)
+                {
+                    if (xnode.Attributes.GetNamedItem("id").Value == inputID)
+                    {
+                        for (i = 0; i < xRoot.ChildNodes[0].ChildNodes.Count; i++)
+                        {
+                            if (i == param - 1)
+                            {
+                                Type type;
+                                if (char.IsDigit(xnode.ChildNodes[i].InnerText[0])) type = typeof(int);
+                                else type = typeof(string);
+
+                                Console.WriteLine("Enter data:");
+                                string data = EnterData(type);
+                                xnode.ChildNodes[i].InnerText = data;
+                                break;
+                            }
+                        }
+                    }
+                }
+                xDoc.Save(@"..\..\..\DB\" + filename);
+                ShowData(typeName, filename);
+                Console.WriteLine("Data is saved!");
+                Console.ReadKey();
+            }
         }
         public static void DeleteData(string dataID, string filename)
         {
             XmlElement xRoot = LoadFile(filename);
   
-            foreach (XmlNode xnode in xRoot)
-            {
-                if (Convert.ToString(xnode.Attributes.GetNamedItem("id").Value) == dataID)
-                    xRoot.RemoveChild(xnode);
-            }
+            foreach (XmlNode xnode in xRoot) if (xnode.Attributes.GetNamedItem("id").Value == dataID) xRoot.RemoveChild(xnode);
             xDoc.Save($@"..\..\..\DB\{filename}");
         }
         protected static XmlElement LoadFile(string filename) 
