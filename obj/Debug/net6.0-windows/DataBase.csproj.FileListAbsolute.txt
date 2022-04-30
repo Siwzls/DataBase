@@ -1,0 +1,17 @@
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\net6.0-windows\DataBase.exe
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\net6.0-windows\DataBase.deps.json
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\net6.0-windows\DataBase.runtimeconfig.json
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\net6.0-windows\DataBase.dll
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\bin\Debug\net6.0-windows\DataBase.pdb
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\DataBase.csproj.AssemblyReference.cache
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\DataBase.MainForm.resources
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\DataBase.csproj.GenerateResource.cache
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\DataBase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\DataBase.AssemblyInfoInputs.cache
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\DataBase.AssemblyInfo.cs
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\DataBase.csproj.CoreCompileInputs.cache
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\DataBase.dll
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\refint\DataBase.dll
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\DataBase.pdb
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\DataBase.genruntimeconfig.cache
+C:\Users\swizl\Documents\@Teh\C#\DataBase\DataBase\obj\Debug\net6.0-windows\ref\DataBase.dll
