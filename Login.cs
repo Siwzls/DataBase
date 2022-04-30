@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace DataBase
@@ -14,13 +15,14 @@ namespace DataBase
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (LoginTB.Text == "admin" && PasswordTB.Text == "admin")
             {
-                Form test = new Form();
-                test.ShowDialog(new MainForm());
+                Form f = new Form();
+                f.Close();
+                f = new MainForm();
+                f.Show();
             }
             else MessageBox.Show("Login or password is wrong!");
         }
