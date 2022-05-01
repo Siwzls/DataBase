@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "FLJ6MrLDEFiyH7dQG1Zh/lIn1q1l0Fwnw6V9fL7MDAQXF9oP54idyimYGyGbdez6Ipjofy40FLOjU8/UVE7BCg==",
+  "dgSpecHash": "thzju3y0FDxpcMNolXcV11O5tp/Wc2sRJ+ZNDLx7/vNTuVDJR4Q5xc5K/V0IDtnAJVHLqnFc7XCZgsFdKuhroQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\swizl\\Documents\\@Teh\\C#\\DataBase\\DataBase\\DataBase.csproj",
+  "projectFilePath": "C:\\Users\\Andrew\\Desktop\\DataBase\\DataBase\\DataBase.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\swizl\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.24\\microsoft.netcore.app.host.win-x64.3.1.24.nupkg.sha512"
+    "C:\\Users\\Andrew\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512",
+    "C:\\Users\\Andrew\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\Andrew\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Andrew\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
   ],
   "logs": []
 }
