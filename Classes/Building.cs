@@ -12,7 +12,7 @@ namespace DataBase
             XmlElement xRoot = LoadFile(filename);
 
             XmlElement mainElem = xDoc.CreateElement("building");
-            XmlElement floorCountElem = xDoc.CreateElement("floorcount");
+            XmlElement floorCountElem = xDoc.CreateElement("floor count");
             XmlElement streetElem = xDoc.CreateElement("street");
 
             XmlAttribute idAttr = xDoc.CreateAttribute("id");

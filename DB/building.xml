@@ -1,7 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <buildings>
-  <building id="1">
+  <building id="0">
     <street>Veldress-11</street>
     <floorcount>3</floorcount>
   </building>
+    <building id="1">
+        <street>Merkela-54</street>
+        <floorcount>5</floorcount>
+    </building>
+	<building id="2">
+		<street>Valdeku-43</street>
+		<floorcount>3</floorcount>
+	</building>
+	<building id="3">
+		<street>Ozolciema-27</street>
+		<floorcount>4</floorcount>
+	</building>
 </buildings>

@@ -23,22 +23,28 @@ namespace DataBase
                     case "1":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("Ñhoose data:");
+                        Console.WriteLine("ï¿½hoose data:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
                         switch (DataClass.EnterData(typeof(int))) 
-                        {         
+                        {
                             case "1":
+                                Console.Beep();
                                 DataClass.ShowData("Persons", "people.xml");
+                                Console.WriteLine("Press any key to continue . . .");
                                 Console.ReadKey();
                                 break;     
                             case "2":
+                                Console.Beep();
                                 DataClass.ShowData("Buildings", "building.xml");
+                                Console.WriteLine("Press any key to continue . . .");
                                 Console.ReadKey();
                                 break;     
                             case "3":
+                                Console.Beep();
                                 DataClass.ShowData("Hotel rooms", "hotelRooms.xml");
+                                Console.WriteLine("Press any key to continue . . .");
                                 Console.ReadKey();
                                 break;
                         }                       
@@ -47,13 +53,14 @@ namespace DataBase
                     case "2":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("Ñhoose data to add:");
+                        Console.WriteLine("ï¿½hoose data to add:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
                         switch (DataClass.EnterData(typeof(int)))
                         {
                             case "1":
+                                Console.Beep();
                                 Console.Clear();
                                 Console.WriteLine("Enter data:");
                                 Console.WriteLine("============:");
@@ -67,6 +74,7 @@ namespace DataBase
                                 name, lastName, age);
                                 break;
                             case "2":
+                                Console.Beep();
                                 Console.Clear();
                                 Console.WriteLine("Enter data:");
                                 Console.WriteLine("============:");
@@ -77,6 +85,7 @@ namespace DataBase
                                 Building.AddData("building.xml", floorCount, street);
                                 break;
                             case "3":
+                                Console.Beep();
                                 Console.Clear();
                                 Console.WriteLine("Enter data:");
                                 Console.WriteLine("============:");
@@ -99,7 +108,7 @@ namespace DataBase
                     case "3":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("Ñhoose data to add:");
+                        Console.WriteLine("ï¿½hoose data to add:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
@@ -128,13 +137,15 @@ namespace DataBase
                         switch (DataClass.EnterData(typeof(int)))
                         {
                             case "1":
-                                Console.WriteLine("Ñhoose data to search:");
+                                Console.Beep();
+                                Console.WriteLine("ï¿½hoose data to search:");
                                 Console.WriteLine("1. People");
                                 Console.WriteLine("2. Buildings");
                                 Console.WriteLine("3. Hotel rooms");
                                 switch (DataClass.EnterData(typeof(int)))
                                 {
                                     case "1":
+                                        Console.Beep();
                                         Console.Clear();
                                         Console.WriteLine("Enter ID:");
                                         string idPeople;
@@ -144,9 +155,12 @@ namespace DataBase
                                             if (DataClass.CheckId("people.xml", idPeople)) break;
                                         }
                                         DataClass.SearchDataByID("people.xml", "Persons", idPeople);
+                                        Console.Beep();
+                                        Console.WriteLine("Press any key to continue . . .");
                                         Console.ReadKey();
                                         break;
                                     case "2":
+                                        Console.Beep();
                                         Console.Clear();
                                         Console.WriteLine("Enter ID:");
                                         string idBuilding;
@@ -156,9 +170,12 @@ namespace DataBase
                                             if (DataClass.CheckId("building.xml", idBuilding)) break;
                                         }
                                         DataClass.SearchDataByID("building.xml", "Buildings", idBuilding);
+                                        Console.Beep();
+                                        Console.WriteLine("Press any key to continue . . .");
                                         Console.ReadKey();
                                         break;
                                     case "3":
+                                        Console.Beep();
                                         Console.Clear();
                                         Console.WriteLine("Enter ID:");
                                         string idHotelRoom;
@@ -168,38 +185,48 @@ namespace DataBase
                                             if (DataClass.CheckId("hotelRooms.xml", idHotelRoom)) break;
                                         }
                                         DataClass.SearchDataByID("hotelRooms.xml", "Hotel Rooms", idHotelRoom);
+                                        Console.Beep();
+                                        Console.WriteLine("Press any key to continue . . .");
                                         Console.ReadKey();
                                         break;
                                 }
                                 break;
                             case "2":
-                                Console.WriteLine("Ñhoose data to search:");
+                                Console.Beep();
+                                Console.WriteLine("ï¿½hoose data to search:");
                                 Console.WriteLine("1. People");
                                 Console.WriteLine("2. Buildings");
                                 Console.WriteLine("3. Hotel rooms");
                                 switch (DataClass.EnterData(typeof(int)))
                                 {
                                     case "1":
+                                        Console.Beep();
                                         Console.Clear();
                                         DataClass.SearchDataByParameters("people.xml", "Persons");
+                                        Console.WriteLine("Press any key to continue . . .");
+                                        Console.ReadKey();
                                         break;
                                     case "2":
+                                        Console.Beep();
                                         Console.Clear();
                                         DataClass.SearchDataByParameters("building.xml", "Buildings");
+                                        Console.WriteLine("Press any key to continue . . .");
                                         Console.ReadKey();
                                         break;
                                     case "3":
+                                        Console.Beep();
                                         Console.Clear();
                                         DataClass.SearchDataByParameters("hotelRoom.xml", "Hotel Rooms");
+                                        Console.WriteLine("Press any key to continue . . .");
                                         Console.ReadKey();
                                         break;
                                 }
                                 break;
                             case "3":
+                                Console.Beep();
                                 Console.Clear();
                                 DataClass.SearchDataBySummary();           
                                 Console.ReadKey();
-
                                 break;
                         }
                         break;
@@ -207,26 +234,43 @@ namespace DataBase
                     case "5":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("Ñhoose data to delete:");
+                        Console.WriteLine("ï¿½hoose data to delete:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
                         switch (DataClass.EnterData(typeof(int)))
                         {
                             case "1":
+                                Console.Beep();
                                 DataClass.ShowData("Persons", "people.xml");
                                 Console.WriteLine("Enter ID: ");
                                 DataClass.DeleteData(DataClass.EnterData(typeof(int)), "people.xml");
+                                Console.Clear();
+                                Console.WriteLine("Data was deleted successfully.");
+                                Console.ReadKey();
                                 break;
                             case "2":
+                                Console.Beep();
                                 DataClass.ShowData("Buildings", "building.xml");
-                                Console.WriteLine("Enter ID: ");
+                                Console.WriteLine("Enter ID: "); 
                                 DataClass.DeleteData(DataClass.EnterData(typeof(int)), "building.xml");
+                                Console.Clear();
+                                Console.WriteLine("Data was deleted successfully.");
+                                Console.ReadKey();
                                 break;
                             case "3":
+                                Console.Beep();
                                 DataClass.ShowData("Hotel rooms", "hotelRooms.xml");
                                 Console.WriteLine("Enter ID: ");
                                 DataClass.DeleteData(DataClass.EnterData(typeof(int)), "hotelRooms.xml");
+                                Console.Clear();
+                                Console.Beep();
+                                Console.WriteLine("Data was deleted successfully.");
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.WriteLine("Press any key to continue . . .");
+                                Console.ReadKey();
+                                Console.Beep();
                                 break;
                         }
                         break;
@@ -235,6 +279,13 @@ namespace DataBase
                         isWorking = !isWorking;
                         break;
                     default:
+                        Console.Clear();
+                        Console.Beep();
+                        Console.WriteLine("Your option is not valid, please select an option from 1 to 5");
+                        Console.WriteLine();
+                        Console.WriteLine("To continue, press any key . . .");
+                        Console.ReadKey();
+                        Console.Beep();
                         break;
                 }
                 Console.Clear();
