@@ -23,25 +23,28 @@ namespace DataBase
                     case "1":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("�hoose data:");
-                        Console.WriteLine("1. People");
-                        Console.WriteLine("2. Buildings");
-                        Console.WriteLine("3. Hotel rooms");
+                        Console.WriteLine("Choose data:");
+                        Console.WriteLine("1. Back");
+                        Console.WriteLine("2. People");
+                        Console.WriteLine("3. Buildings");
+                        Console.WriteLine("4. Hotel rooms");
                         switch (DataClass.EnterData(typeof(int))) 
                         {
                             case "1":
+                                break;
+                            case "2":
                                 Console.Beep();
                                 DataClass.ShowData("Persons", "people.xml");
                                 Console.WriteLine("Press any key to continue . . .");
                                 Console.ReadKey();
                                 break;     
-                            case "2":
+                            case "3":
                                 Console.Beep();
                                 DataClass.ShowData("Buildings", "building.xml");
                                 Console.WriteLine("Press any key to continue . . .");
                                 Console.ReadKey();
                                 break;     
-                            case "3":
+                            case "4":
                                 Console.Beep();
                                 DataClass.ShowData("Hotel rooms", "hotelRooms.xml");
                                 Console.WriteLine("Press any key to continue . . .");
@@ -53,10 +56,11 @@ namespace DataBase
                     case "2":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("�hoose data to add:");
+                        Console.WriteLine("Choose data to add:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
+                        Console.WriteLine("4. Back");
                         switch (DataClass.EnterData(typeof(int)))
                         {
                             case "1":
@@ -101,6 +105,8 @@ namespace DataBase
                                 } 
                                 HotelRoom.AddData("hotelRooms.xml", roomCount, buildingID);
                                 break;
+                            default:
+                                break;
                         }
                         Console.ReadKey();
                         break;
@@ -108,10 +114,12 @@ namespace DataBase
                     case "3":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("�hoose data to add:");
+                        Console.WriteLine("Choose data to edit:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
+                        Console.WriteLine("4. Back");
+
                         switch (DataClass.EnterData(typeof(int)))
                         {
                             case "1":
@@ -121,7 +129,9 @@ namespace DataBase
                                 DataClass.EditData("building.xml", "Building");
                                 break;
                             case "3":
-                                DataClass.EditData("hotelRooms.xml", "Hptel rooms");
+                                DataClass.EditData("hotelRooms.xml", "Hotel rooms");
+                                break;
+                            default:
                                 break;
                         }
                         break;
@@ -133,15 +143,17 @@ namespace DataBase
                         Console.WriteLine("1. ID");
                         Console.WriteLine("2. Parameters");
                         Console.WriteLine("3. Summary");
+                        Console.WriteLine("4. Back");
                        
                         switch (DataClass.EnterData(typeof(int)))
                         {
                             case "1":
                                 Console.Beep();
-                                Console.WriteLine("�hoose data to search:");
+                                Console.WriteLine("Choose data to search:");
                                 Console.WriteLine("1. People");
                                 Console.WriteLine("2. Buildings");
                                 Console.WriteLine("3. Hotel rooms");
+                                Console.WriteLine("4. Back");
                                 switch (DataClass.EnterData(typeof(int)))
                                 {
                                     case "1":
@@ -189,14 +201,18 @@ namespace DataBase
                                         Console.WriteLine("Press any key to continue . . .");
                                         Console.ReadKey();
                                         break;
+                                    default:
+                                        break;
+
                                 }
                                 break;
                             case "2":
                                 Console.Beep();
-                                Console.WriteLine("�hoose data to search:");
+                                Console.WriteLine("Choose data to search:");
                                 Console.WriteLine("1. People");
                                 Console.WriteLine("2. Buildings");
                                 Console.WriteLine("3. Hotel rooms");
+                                Console.WriteLine("4. Back");
                                 switch (DataClass.EnterData(typeof(int)))
                                 {
                                     case "1":
@@ -234,10 +250,11 @@ namespace DataBase
                     case "5":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("�hoose data to delete:");
+                        Console.WriteLine("Choose data to delete:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
+                        Console.WriteLine("4. Back");
                         switch (DataClass.EnterData(typeof(int)))
                         {
                             case "1":
@@ -271,6 +288,8 @@ namespace DataBase
                                 Console.WriteLine("Press any key to continue . . .");
                                 Console.ReadKey();
                                 Console.Beep();
+                                break;
+                            default:
                                 break;
                         }
                         break;
