@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Andrew\\.nuget\\packages\\": {}
+    "C:\\Users\\swizl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Andrew\\Desktop\\DataBase\\DataBase\\DataBase.csproj",
+      "projectUniqueName": "C:\\Users\\swizl\\Documents\\@Teh\\C#\\DataBase\\DataBase\\DataBase.csproj",
       "projectName": "DataBase",
-      "projectPath": "C:\\Users\\Andrew\\Desktop\\DataBase\\DataBase\\DataBase.csproj",
-      "packagesPath": "C:\\Users\\Andrew\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Andrew\\Desktop\\DataBase\\DataBase\\obj\\",
+      "projectPath": "C:\\Users\\swizl\\Documents\\@Teh\\C#\\DataBase\\DataBase\\DataBase.csproj",
+      "packagesPath": "C:\\Users\\swizl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\swizl\\Documents\\@Teh\\C#\\DataBase\\DataBase\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Andrew\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\swizl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -57,20 +57,8 @@
         "warn": true,
         "downloadDependencies": [
           {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
-          },
-          {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.22, 3.1.22]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
+            "version": "[3.1.24, 3.1.24]"
           }
         ],
         "frameworkReferences": {
@@ -78,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

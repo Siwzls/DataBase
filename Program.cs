@@ -149,6 +149,7 @@ namespace DataBase
                         {
                             case "1":
                                 Console.Beep();
+                                Console.Clear();
                                 Console.WriteLine("Choose data to search:");
                                 Console.WriteLine("1. People");
                                 Console.WriteLine("2. Buildings");
@@ -208,6 +209,7 @@ namespace DataBase
                                 break;
                             case "2":
                                 Console.Beep();
+                                Console.Clear();
                                 Console.WriteLine("Choose data to search:");
                                 Console.WriteLine("1. People");
                                 Console.WriteLine("2. Buildings");
