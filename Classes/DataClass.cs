@@ -11,7 +11,7 @@ namespace DataBase
             Console.Clear();
             XmlElement xRoot = LoadFile(filename);
 
-            Console.WriteLine("############");
+            Console.WriteLine("===================");
             Console.WriteLine(typeName);
             Console.WriteLine("############");
             int currentID = 0;
@@ -37,9 +37,9 @@ namespace DataBase
             Console.Clear();
             XmlElement xRoot = LoadFile(filename);
 
-            Console.WriteLine("############");
+            Console.WriteLine("=================");
             Console.WriteLine(typeName);
-            Console.WriteLine("############");
+            Console.WriteLine("=================");
             foreach (XmlElement xnode in xRoot)
             {
                 if (xnode.Attributes.GetNamedItem("id").Value == id)
@@ -57,7 +57,7 @@ namespace DataBase
             Console.Clear();
             XmlElement xRoot = LoadFile(filename);
 
-            Console.WriteLine("############");
+            Console.WriteLine("===================");
             Console.WriteLine(typeName);
             Console.WriteLine("############");
 
@@ -85,9 +85,9 @@ namespace DataBase
                         if (xRoot.ChildNodes[i].ChildNodes[j].InnerText == data)
                         {
                             Console.Clear();
-                            Console.WriteLine("############");
+                            Console.WriteLine("================");
                             Console.WriteLine(typeName);
-                            Console.WriteLine("############");
+                            Console.WriteLine("================");
                             foreach (XmlNode childnode in xRoot.ChildNodes[i].ChildNodes) Console.WriteLine($"{childnode.Name.ToUpper()}: {childnode.InnerText}");
                             Console.ReadKey();
                         }
@@ -142,7 +142,7 @@ namespace DataBase
                 string inputID = EnterData(typeof(int));
                 Console.Clear();
 
-                //Выводит параметры
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 foreach (XmlElement xnode in xRoot)
                 {
                     if (xnode.Attributes.GetNamedItem("id").Value == inputID)
@@ -155,7 +155,7 @@ namespace DataBase
                 }
                 Console.WriteLine("-------------------");
 
-                //Сохраняет номера параметров
+                //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 List<int> iList = new List<int>();
                 int i = 1;
                 foreach (XmlNode childnode in xRoot.ChildNodes[0].ChildNodes)
@@ -220,7 +220,7 @@ namespace DataBase
                         {
                             if (!char.IsDigit(c))
                             {
-                                Console.WriteLine("Data type is wrong");
+                                Console.WriteLine("Your data type is wrong");
                                 data = null;
                                 break;
                             }
@@ -233,13 +233,13 @@ namespace DataBase
                         {
                             if (!char.IsLetter(c))
                             {
-                                Console.WriteLine("Data type is wrong");
+                                Console.WriteLine("Your data type is wrong");
                                 data = null;
                                 break;
                             }
                             else return data;
                         }
-                    }
+                    } 
                     else return data;
                 }
                 else
@@ -290,7 +290,7 @@ namespace DataBase
             {
                 if (Convert.ToInt32(id) == idList[i]) return true;
             }
-            Console.WriteLine("ID is wrong");
+            Console.WriteLine("This ID is not exist");
             return false;
         }
     }

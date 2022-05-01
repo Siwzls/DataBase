@@ -2,6 +2,22 @@
 <hotelRoooms>
   <building id="0">
     <roomCount>2</roomCount>
-    <buildingId>1</buildingId>
+    <floor>3</floor>
   </building>
+    <building id="102">
+        <roomCount>2</roomCount>
+        <floor>1</floor>
+    </building>
+	<building id="324">
+		<roomCount>1</roomCount>
+		<floor>3</floor>
+	</building>
+	<building id="12">
+		<roomCount>3</roomCount>
+		<floor>1</floor>
+	</building>
+	<building id="1">
+		<roomCount>5</roomCount>
+		<floor>5</floor>
+	</building>
 </hotelRoooms>
