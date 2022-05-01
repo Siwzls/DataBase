@@ -12,7 +12,7 @@ namespace DataBase
                 Console.WriteLine("1. Show Data");
                 Console.WriteLine("2. Add Data");
                 Console.WriteLine("3. Edit Data");
-                Console.WriteLine("4. Search Data(WIP)");
+                Console.WriteLine("4. Search Data");
                 Console.WriteLine("5. Delete Data");
                 Console.WriteLine("6. Exit");
                 Console.WriteLine("=============");
@@ -23,7 +23,7 @@ namespace DataBase
                     case "1":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("�hoose data:");
+                        Console.WriteLine("Сhoose data:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
@@ -53,7 +53,7 @@ namespace DataBase
                     case "2":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("�hoose data to add:");
+                        Console.WriteLine("Сhoose data to add:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
@@ -63,7 +63,7 @@ namespace DataBase
                                 Console.Beep();
                                 Console.Clear();
                                 Console.WriteLine("Enter data:");
-                                Console.WriteLine("============:");
+                                Console.WriteLine("============");
                                 Console.WriteLine("Name:");
                                 string name = DataClass.EnterData(typeof(string));
                                 Console.WriteLine("Last name:");
@@ -77,7 +77,7 @@ namespace DataBase
                                 Console.Beep();
                                 Console.Clear();
                                 Console.WriteLine("Enter data:");
-                                Console.WriteLine("============:");
+                                Console.WriteLine("============");
                                 Console.WriteLine("Floor Count:");
                                 string floorCount = DataClass.EnterData(typeof(int));
                                 Console.WriteLine("Street:");
@@ -88,7 +88,7 @@ namespace DataBase
                                 Console.Beep();
                                 Console.Clear();
                                 Console.WriteLine("Enter data:");
-                                Console.WriteLine("============:");
+                                Console.WriteLine("============");
                                 Console.WriteLine("Rooms count:");
                                 string roomCount = DataClass.EnterData(typeof(int));
                                 DataClass.ShowData("Buildings", "building.xml");
@@ -108,7 +108,7 @@ namespace DataBase
                     case "3":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("�hoose data to add:");
+                        Console.WriteLine("Сhoose data to add:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");
@@ -138,7 +138,7 @@ namespace DataBase
                         {
                             case "1":
                                 Console.Beep();
-                                Console.WriteLine("�hoose data to search:");
+                                Console.WriteLine("Сhoose data to search:");
                                 Console.WriteLine("1. People");
                                 Console.WriteLine("2. Buildings");
                                 Console.WriteLine("3. Hotel rooms");
@@ -193,7 +193,7 @@ namespace DataBase
                                 break;
                             case "2":
                                 Console.Beep();
-                                Console.WriteLine("�hoose data to search:");
+                                Console.WriteLine("Сhoose data to search:");
                                 Console.WriteLine("1. People");
                                 Console.WriteLine("2. Buildings");
                                 Console.WriteLine("3. Hotel rooms");
@@ -234,7 +234,7 @@ namespace DataBase
                     case "5":
                         Console.Beep();
                         Console.Clear();
-                        Console.WriteLine("�hoose data to delete:");
+                        Console.WriteLine("Сhoose data to delete:");
                         Console.WriteLine("1. People");
                         Console.WriteLine("2. Buildings");
                         Console.WriteLine("3. Hotel rooms");

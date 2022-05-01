@@ -13,7 +13,7 @@ namespace DataBase
 
             Console.WriteLine("===================");
             Console.WriteLine(typeName);
-            Console.WriteLine("############");
+            Console.WriteLine("===================");
             int currentID = 0;
             int dataCount = 0;
             while (true)
@@ -59,7 +59,7 @@ namespace DataBase
 
             Console.WriteLine("===================");
             Console.WriteLine(typeName);
-            Console.WriteLine("############");
+            Console.WriteLine("===================");
 
             List<int> iList = new List<int>();
             int i = 1;
